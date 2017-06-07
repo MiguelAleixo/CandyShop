@@ -1,0 +1,108 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body{
+    background-image: url("../image/fundo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#janela{
+    background-color: #fff;
+    width: 400px;
+    height: 160px;
+    margin: 100px auto 0;
+    box-shadow: 0px 1px 15px 1px rgba(0,0,0,0.7);
+}
+#login{
+    margin-left: 65px;
+    padding-top: 50px;
+}
+article h1{
+    color: #e91e63;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40pt;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#botao{
+    background-color: #e91e63;
+    color: #fff;
+    width: 88px;
+    height: 36px;
+    margin-left: 85px;
+    margin-top: 50px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border-style: none;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+}
+#botao:hover, #botao:focus, #botao:active{
+    background-color: #D81B60;
+}
+#botao:active{
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 3px rgba(0,0,0,0.12), 0 4px 15px 0 rgba(0,0,0,0.20);
+}
+.inputelabel{
+    position: relative;
+}
+.barra{
+    position: relative;
+    display: block;
+    width: 280px;
+    left: -5px;
+}
+.barra:before, .barra:after{
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: -1px;
+    position: absolute;
+    background: red;
+    transition: 0.2s ease all;
+    top: 25px;
+}
+.barra:before{
+    left: 50%;
+}
+.barra:after{
+    right: 50%;
+}
+input:valid{
+    border-bottom: 1px solid #e91e63;
+}
+input:valid ~ .barra:before,
+input:valid ~ .barra:after{
+    background-color: #e91e63 !important;
+}
+input:focus ~ label{
+    top: -20px;
+    font-size: 12px;
+    color: red;
+}
+input:valid ~ label{
+    color: #e91e63;
+}
+
+input:focus ~ .barra:before,
+input:focus ~ .barra:after{
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
