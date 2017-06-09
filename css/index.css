@@ -61,7 +61,7 @@ article h1{
     width: 0;
     bottom: -1px;
     position: absolute;
-    background: red;
+    background: black;
     transition: 0.2s ease all;
     top: 25px;
 }
@@ -81,17 +81,20 @@ input:valid ~ .barra:after{
 input:focus ~ label{
     top: -20px;
     font-size: 12px;
-    color: red;
+    color: black;
 }
 input:valid ~ label{
     color: #e91e63;
 }
-
 input:focus ~ .barra:before,
 input:focus ~ .barra:after{
     width: 50%;
 }
-
+label.uso{
+    top: -20px;
+    font-size: 12px;
+    color: rgba(0,0,0,0.42);
+}
 
 
 
