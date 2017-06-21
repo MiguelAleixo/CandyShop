@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <script type="text/javascript" src="js/senha.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
@@ -13,19 +14,16 @@
     <h1> CandyShop </h1>
 </article>
 <section id="janela">
-    <div id="login">
         <div class="inputelabel">
             <input type="password" id="senha" class="caixasenha" minlength="6" name="senha" required/>
             <label class="senha" for="senha"> Senha </label>
             <span class="barra"></span>
             <a href=""> Esqueci minha senha </a>
-            <p>Senha inválida!</p>
-            <p>teste</p>
+            <p id="si">Mínimo 6 caracteres!</p>
         </div>
         <div>
-            <button id="botao"> ENTRAR </button>
+            <button class="botaop"> ENTRAR </button>
         </div>
-    </div>
 </section>
 </body>
 </html>

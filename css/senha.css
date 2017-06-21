@@ -7,9 +7,10 @@
     outline: none;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    padding-bottom: 8px;
+    padding-bottom: 0;
     position: absolute;
-    right: 60px;
+    left: 50px;
+    top: 45px;
     display: block;
 }
 .senha{
@@ -17,10 +18,47 @@
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     position: absolute;
-    top: 0px;
-    left: -10px;
+    top: 48px;
+    left: 50px;
     pointer-events: none;
     transition: 0.2s ease all;
+}
+.botao{
+    background-color: #e91e63;
+    color: #fff;
+    width: 88px;
+    height: 36px;
+    position: relative;
+    top: 115px;
+    left: 145px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border-style: none;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+    transition: 0.5s ease all;
+}
+.botao:hover, .botao:focus, .botao:active{
+    background-color: #D81B60;
+}
+.botao:active{
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 3px rgba(0,0,0,0.12), 0 4px 15px 0 rgba(0,0,0,0.20);
+}
+.botaop {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.26);
+    width: 88px;
+    height: 36px;
+    position: relative;
+    top: 115px;
+    left: 145px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border-style: none;
+    transition: 0.5s ease all;
 }
 a{
     font-size: 12px;
@@ -28,6 +66,6 @@ a{
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
     position: absolute;
-    top: 106px;
-    left: 73px;
+    top: 160px;
+    left: 133px;
 }
