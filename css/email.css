@@ -1,5 +1,5 @@
 .caixaemail {
-    width: 280px;
+    width: 100%;
     height: 26px;
     border-width: 1px;
     border: none;
@@ -8,19 +8,15 @@
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     padding-bottom: 0;
-    position: absolute;
-    left: 50px;
-    top: 45px;
     display: block;
 }
 .email{
     color: rgba(0, 0, 0, 0.42);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    position: absolute;
-    top: 48px;
-    left: 50px;
     pointer-events: none;
+    position: absolute;
+    top: 18px;
     transition: 0.2s ease all;
 }
 .botao{
@@ -28,9 +24,6 @@
     color: #fff;
     width: 88px;
     height: 36px;
-    position: relative;
-    top: 115px;
-    left: 145px;
     border-radius: 2px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
@@ -50,9 +43,6 @@
     color: rgba(0, 0, 0, 0.26);
     width: 88px;
     height: 36px;
-    position: relative;
-    top: 115px;
-    left: 145px;
     border-radius: 2px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
