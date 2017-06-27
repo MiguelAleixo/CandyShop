@@ -2,23 +2,24 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <script type="text/javascript" src="js/email.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
-    <link href="css/email.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <title>Candy Shop</title>
 </head>
 <body>
+<img src="image/icon.png" class="logo"/>
 <section id="janela">
     <div class="inputelabel">
-        <input type="email" id="email" class="caixaemail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="37"  required/>
-        <label class="email" for="email"> Recuperação de Senha </label>
+        <input type="email" id="email" class="caixa" autocomplete="off" pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37"  required/>
+        <label class="label" for="email"> Recuperação de Senha </label>
         <span class="barra"></span>
-        <p id="error">Email inválido!</p>
+        <p id="error">Email inválido</p>
     </div>
     <div class="espacamento"></div>
     <div>
-        <button class="botao"> ENVIAR </button>
+        <button class="botaop" disabled> ENVIAR </button>
     </div>
 </section>
 </body>
