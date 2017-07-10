@@ -1,0 +1,184 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    transition: background-color .5s;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    user-select: none;
+}
+.bar {
+    position: fixed;
+    transition: margin-left 0s;
+    width: 100%;
+    height: 58px;
+    background-color: #8d6e63;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+}
+.shadow{
+	background-color: #8d6e63;
+}
+.nav{
+    width: 320px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+}
+/*.navUser{*/
+    /*width: 320px;*/
+    /*height: 100%;*/
+    /*position: fixed;*/
+    /*z-index: 1;*/
+    /*background-color: #fff;*/
+    /*overflow-x: hidden;*/
+    /*transition: 0.5s;*/
+    /*box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);*/
+    /*right: 0;*/
+/*}*/
+.nav.close{
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+}
+.links{
+    height: 56px;
+    background-color: #fff;
+    transition: 0.2s;
+}
+.links.close {
+    height: 0;
+    background-color: #fff;
+    transition: 0.2s;
+}
+.navInside{
+    z-index: 1;
+    position: relative;
+    height: 56px;
+    background-color: #fff;
+}
+.navBar{
+    transition: margin-left 0s;
+    width: 100%;
+    height: 57px;
+    background-color: #fff;
+    color: #fff;
+    border: 1px solid #eee;
+}
+.active{
+    background-color: #eee;
+}
+/*.navBarUser{*/
+    /*transition: margin-left 0s;*/
+    /*width: 100%;*/
+    /*height: 58px;*/
+    /*background-color: #8d6e63;*/
+    /*box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);*/
+    /*color: #fff;*/
+/*}*/
+.buttonText1{
+    position: absolute;
+    padding: 19px;
+}
+.buttonText2{
+    bottom: 57px;
+    position: relative;
+    padding: 19px;
+    transition: 0.2s;
+}
+.show{
+    background-color: #eee;
+    bottom: 0;
+    transition: 0.2s;
+}
+.user{
+    margin: 9px;
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 14px;
+}
+
+
+/* ------------ outra parte ----------------*/
+
+button.accordion {
+    background-color: white;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2212";
+}
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.arrow{
+    color: #000;
+}
+.material-icons{
+    position: relative;
+    margin: 17px;
+}
+.material-icons:active{
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    padding: 7px;
+    margin: 10px;
+}
+.seta{
+    position: absolute;
+    right: 0;
+    transition: 0.2s;
+}
+.baixo{
+    transform: rotate(90deg);
+    transition: 0.2s;
+}
+.logo{
+    width: 200px;
+    position: absolute;
+    top: 8px;
+    left: 55px;
+}
+h1{
+    margin: 0;
+    color: red;
+    font-size: 20pt;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
