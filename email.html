@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <script type="text/javascript" src="js/email.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <title>Candy Shop</title>
@@ -15,11 +16,11 @@
             <input type="email" id="email" autocomplete="off" class="caixa" pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37" required/>
             <label class="label" for="email"> E-mail </label>
             <span class="barra"></span>
-            <p id="error">Email inválido</p>
+            <p id="error">Email inexistente</p>
         </div>
         <div class="espacamento"></div>
         <div>
-            <button class="botaop" disabled> PRÓXIMO </button>
+            <button id='botao'  class="botaop" disabled> PRÓXIMO </button>
         </div>
 </section>
 </body>

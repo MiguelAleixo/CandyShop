@@ -14,7 +14,7 @@
 <img src="image/LOGO-CS.png" class="logo"/>
 <section id="janela">
     <div class="foto"><img class="user" src="image/user.png"/></div>
-    <i class="material-icons">arrow_back</i>
+    <i class="material-icons" onclick="location.href='email.html'">arrow_back</i>
         <div class="inputelabel">
             <input type="password" id="senha" class="caixa" minlength="6" name="senha" required/>
             <label class="label" for="senha"> Senha </label>
@@ -22,9 +22,10 @@
             <a href="esqsenha.html"> Esqueci minha senha </a>
             <p>É necessario no mínimo 6 caracteres</p>
         </div>
+
         <div class="espacamentocoma"></div>
         <div>
-            <button class="botaop" disabled> ENTRAR </button>
+            <button onclick="location.href='menu.html'" id="botao" class="botaop" disabled> ENTRAR </button>
         </div>
 </section>
 </body>

@@ -15,9 +15,6 @@ body {
     color: #fff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
 }
-.shadow{
-	background-color: #8d6e63;
-}
 .nav{
     width: 320px;
     height: 100%;
@@ -40,14 +37,15 @@ body {
     /*right: 0;*/
 /*}*/
 .nav.close{
-    width: 0;
+    width: 320px;
     height: 100%;
     position: fixed;
     z-index: 1;
     background-color: #fff;
     overflow-x: hidden;
-    transition: 0.2s;
+    transition: ease-out 0.2s;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateX(-100%);
 }
 .links{
     height: 56px;

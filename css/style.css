@@ -1,7 +1,7 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
 body {
-    background: url("../image/fundo2.jpg") no-repeat center center fixed;
+    background: url("../image/fundo.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -17,6 +17,7 @@ body {
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
     border-radius: 2px;
     padding: 16px;
+    position: relative;
 }
 #login{
     margin-left: 65px;
@@ -163,7 +164,23 @@ img.logo{
     margin-right: auto;
     margin-bottom: 75px;
     display: block;
-    margin-top: 50px;
+    margin-top: 285px;
+}
+
+@media screen and (max-width: 450px){
+    img.logo{
+        width: 296px;
+        margin-top: 120px;
+        margin-bottom: 40px;;
+
+    }
+    body {
+        background: none;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 }
 a{
     font-size: 12px;
@@ -188,4 +205,6 @@ i.material-icons{
     position: relative;
     bottom: 40px;
     right: 4px;
+    cursor: default;
+
 }

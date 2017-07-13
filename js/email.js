@@ -1,4 +1,4 @@
-window.onload = function inicio() {
+window.addEventListener('load', function (){
     document.getElementById("email").addEventListener("focus", function () {
         document.getElementsByTagName("label")[0].classList.add("sobelabel");
         document.getElementsByTagName("label")[0].classList.add("vermelho");
@@ -65,4 +65,4 @@ window.onload = function inicio() {
             }
         });
     });
-}
+});
