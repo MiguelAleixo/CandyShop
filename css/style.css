@@ -10,14 +10,19 @@ body {
 #cs{
     margin-left: 50%;
 }
-#janela{
+.card{
+    margin-left: auto;
+    margin-right: auto;
     background-color: #fff;
     width: 296px;
-    margin: 0 auto;
+    max-height: 142px;
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
     border-radius: 2px;
-    padding: 16px;
     position: relative;
+    transition: all 280ms ease;
+}
+.extend{
+    max-height: 216px;
 }
 #login{
     margin-left: 65px;
@@ -47,7 +52,7 @@ body {
     pointer-events: none;
     position: absolute;
     top: 18px;
-    transition: 0.2s ease all;
+    transition: all 280ms ease;
 }
 .barra{
     position: relative;
@@ -62,7 +67,7 @@ body {
     bottom: -1px;
     position: absolute;
     background: rgba(255,0,0,0.87);
-    transition: 0.2s ease all;
+    transition: all 280ms ease;
     top: 25px;
 }
 .barra:before{
@@ -85,7 +90,7 @@ body {
     margin-right: auto;
     display: block;
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
-    transition: 0.5s ease all;
+    transition: all 280ms ease;
 }
 .botao:hover, .botao:focus, .botao:active{
     background-color: #D81B60;
@@ -106,7 +111,7 @@ body {
     margin-right: auto;
     display: block;
     border-style: none;
-    transition: 0.5s ease all;
+    transition: all 280ms ease;
 }
 input:valid{
     border-bottom: 1px solid rgba(0,0,0,0.42);
@@ -124,19 +129,19 @@ label.sobelabel{
     top: 4px;
     font-size: 12px;
     color: rgba(255,0,0,0.87);
-    transition: 0.2s ease all;
+    transition: all 280ms ease;
 }
 label.cinza{
     color: rgba(0,0,0,0.42);
-    transition: 0.2s ease all;
+    transition: all 280ms ease;
 }
 label.rosa{
      color: #e91e63;
-     transition: 0.2s ease all;
+     transition: all 280ms ease;
  }
 label.vermelho{
     color: rgba(255,0,0,0.87);
-    transition: 0.2s ease all;
+    transition: all 280ms ease;
 }
 input.barred{
     border-color: rgba(255,0,0,0.87);
@@ -145,7 +150,7 @@ p{
     display: none;
     margin-top: 5px;
 }
-p.si{
+p.alert{
     display: block;
     font-size: 12px;
     color: rgba(255,0,0,0.87);
@@ -194,17 +199,42 @@ a{
 }
 img.user{
     border-radius: 50%;
-    margin-top: -70px;
-    width: 40%;
+    margin-bottom: -55px;
+    width: 110px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
     display: block;
+    position: relative;
+    transform: scale(0);
+    z-index: 1;
+    transition: all 280ms ease;
+}
+img.show{
+    transform: scale(1);
 }
 i.material-icons{
     position: relative;
-    bottom: 40px;
+    bottom: 24px;
     right: 4px;
     cursor: default;
-
+}
+.slide{
+    transform: translateX(-100%);
+}
+.overflow{
+    overflow: hidden;
+}
+.flexContainer{
+    transition: all 280ms ease;
+    display: flex;
+}
+.divEmail{
+    min-width: 100%;
+    padding: 16px;
+}
+.divSenha{
+    min-width: 100%;
+    padding: 16px;
+    margin-top: 21px;
 }

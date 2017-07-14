@@ -3,25 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <script type="text/javascript" src="js/email.js"></script>
-    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/efeitos.js"></script>
+    <!--<script type="text/javascript" src="js/ajax.js"></script>-->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <title>Candy Shop</title>
 </head>
 <body>
 <img src="image/LOGO-CS.png" class="logo"/>
-<section id="janela">
-        <div class="inputelabel">
-            <input type="email" id="email" autocomplete="off" class="caixa" pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37" required/>
-            <label class="label" for="email"> E-mail </label>
-            <span class="barra"></span>
-            <p id="error">Email inexistente</p>
+<div class="foto"><img class="user" src="image/user.png"/></div>
+<div id="card" class="card">
+    <div id="overflow" class="overflow">
+        <div id="teste" class="flexContainer">
+
+
+            <div class="divEmail">
+                <div class="inputelabel">
+                    <input type="email" id="email" autocomplete="off" class="caixa"
+                           pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37" required/>
+                    <label class="label" for="email"> E-mail </label>
+                    <span class="barra"></span>
+                    <p id="error">Email inexistente</p>
+                </div>
+                <div class="espacamento"></div>
+                <div>
+                    <button id='botao' class="botaop" disabled> PRÓXIMO</button>
+                </div>
+            </div>
+            <div class="divSenha">
+                <i class="material-icons">arrow_back</i>
+                <div class="inputelabel">
+                    <input type="password" id="senha" class="caixa" minlength="6" name="senha" required/>
+                    <label class="label" for="senha"> Senha </label>
+                    <span class="barra"></span>
+                    <a href="esqsenha.html"> Esqueci minha senha </a>
+                    <p>É necessario no mínimo 6 caracteres</p>
+                </div>
+
+                <div class="espacamentocoma"></div>
+                <div>
+                    <button id="botao2" class="botaop" disabled> ENTRAR</button>
+                </div>
+            </div>
+
+
         </div>
-        <div class="espacamento"></div>
-        <div>
-            <button id='botao'  class="botaop" disabled> PRÓXIMO </button>
-        </div>
-</section>
+    </div>
+</div>
 </body>
 </html>
