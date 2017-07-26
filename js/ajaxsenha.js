@@ -1,28 +1,34 @@
 window.addEventListener('load', function () {
-    document.querySelector('#botao').addEventListener('click', function() {
+    document.querySelectorAll('button')[1].addEventListener('click', function() {
+        var email = document.querySelector('#email').value;
         var senha = document.querySelector('#senha').value;
         var request = new XMLHttpRequest();
-        request.open('GET', 'http://192.168.10.192:3500/user/check/' + senha, true);
-
+        request.open('POST', 'http://192.168.10.192:3500/user/check', true);
+        var data = JSON.stringify({
+            email: email,
+            senha: senha
+        });
+        request.setRequestHeader("content-type", "application/json");
         request.onload = function() {
             var resp = JSON.parse(request.responseText);
             if (request.status >= 200 && request.status < 400) {
-                window.location.href = "menu.html"
+                window.open(menu.html)
             } else {
-                console.log(resp.code);
+                console.log(resp);
                 switch (resp.code){
                     case 1:
-                        document.getElementsByTagName("label")[0].classList.remove("rosa");
-                        document.getElementsByTagName("label")[0].classList.add("vermelho");
-                        document.getElementsByTagName("p")[0].classList.add("si");
-                        // document.getElementsByTagName("button")[0].classList.remove("botao");
-                        // document.getElementsByTagName("button")[0].classList.add("botaop");
-                        // document.getElementsByTagName("button")[0].setAttribute("disabled", "disabled");
+                        document.getElementsByTagName("label")[1].classList.add("vermelho");
+                        document.getElementsByTagName("p")[1].classList.add("alert");
+                        document.getElementsByTagName("p")[1].innerText = "Senha incorreta";
+                        document.getElementsByTagName("input")[1].classList.add("barred");
+                        document.getElementsByTagName("button")[1].setAttribute("disabled", "disabled");
+                        document.getElementsByTagName("button")[1].classList.remove("botao");
+                        document.getElementsByTagName("button")[1].classList.add("botaop");
                         break;
                 }
             }
         };
-
-        request.send();
+        request.send(data);
+        console.log(data)
     });
 });

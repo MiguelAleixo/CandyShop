@@ -24,6 +24,9 @@ body {
 .extend{
     max-height: 216px;
 }
+.extend2{
+    max-height: 170px;
+}
 #login{
     margin-left: 65px;
     padding-top: 50px;
@@ -128,7 +131,6 @@ input:focus ~ .barra:after {
 label.sobelabel{
     top: 4px;
     font-size: 12px;
-    color: rgba(255,0,0,0.87);
     transition: all 280ms ease;
 }
 label.cinza{
@@ -197,10 +199,17 @@ a{
     margin-left: 75px;
     margin-right: 75px;
 }
-img.user{
+div.user{
+    font-size: 60px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding-top: 14px;
+    background-color: #e91e63;
     border-radius: 50%;
-    margin-bottom: -55px;
-    width: 110px;
+    margin-bottom: -50px;
+    width: 100px;
+    height: 100px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
@@ -210,7 +219,7 @@ img.user{
     z-index: 1;
     transition: all 280ms ease;
 }
-img.show{
+div.show{
     transform: scale(1);
 }
 i.material-icons{
@@ -219,8 +228,17 @@ i.material-icons{
     right: 4px;
     cursor: default;
 }
+i.material-icons.esq{
+    position: relative;
+    bottom: 4px;
+    right: 4px;
+    cursor: default;
+}
 .slide{
     transform: translateX(-100%);
+}
+.slide2{
+    transform: translateX(-200%);
 }
 .overflow{
     overflow: hidden;
@@ -237,4 +255,8 @@ i.material-icons{
     min-width: 100%;
     padding: 16px;
     margin-top: 21px;
+}
+.divEsq{
+    min-width: 100%;
+    padding: 16px;
 }

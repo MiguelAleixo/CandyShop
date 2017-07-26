@@ -72,7 +72,7 @@ body {
     border: 1px solid #eee;
 }
 .active{
-    background-color: #eee;
+    background-color: #fff;
 }
 /*.navBarUser{*/
     /*transition: margin-left 0s;*/
@@ -104,7 +104,6 @@ body {
     position: absolute;
     right: 14px;
 }
-
 
 /* ------------ outra parte ----------------*/
 
@@ -149,13 +148,27 @@ div.panel {
 .material-icons{
     position: relative;
     margin: 17px;
+    z-index: 1;
+    outline: none;
 }
-.material-icons:active{
-    background-color: rgba(0,0,0,0.2);
+.sombraOpt{
     border-radius: 50%;
-    padding: 7px;
-    margin: 10px;
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.1);
+    display: block;
+    transform: scale(0);
+    transition: 0.5s;
 }
+.material-icons.seta:focus ~ .sombraOpt{
+    transform: scale(1);
+    background-color: transparent;
+}
+
+
 .seta{
     position: absolute;
     right: 0;
@@ -176,6 +189,14 @@ h1{
     color: red;
     font-size: 20pt;
     font-family: 'Roboto', sans-serif;
+}
+.logoff{
+    background-color: #fff;
+    width: 160px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
 }
 
 

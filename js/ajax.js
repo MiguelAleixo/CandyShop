@@ -7,17 +7,22 @@ window.addEventListener('load', function () {
         request.onload = function() {
             var resp = JSON.parse(request.responseText);
             if (request.status >= 200 && request.status < 400) {
-                window.location.href = "senha.html"
+                document.getElementById("teste").classList.add("slide");
+                document.getElementById("card").classList.add("extend");
+                document.querySelectorAll("div")[0].classList.add("show");
+                var letra = document.querySelectorAll('input')[0].value;
+                document.querySelectorAll("div")[0].innerText = letra[0];
             } else {
-                console.log(resp.code);
                 switch (resp.code){
                     case 1:
-                        document.getElementsByTagName("label")[0].classList.remove("rosa");
                         document.getElementsByTagName("label")[0].classList.add("vermelho");
-                        document.getElementsByTagName("p")[0].classList.add("si");
-                        // document.getElementsByTagName("button")[0].classList.remove("botao");
-                        // document.getElementsByTagName("button")[0].classList.add("botaop");
-                        // document.getElementsByTagName("button")[0].setAttribute("disabled", "disabled");
+                        document.getElementsByTagName("p")[0].classList.add("alert");
+                        document.getElementsByTagName("p")[0].innerText = "Email inexistente";
+                        document.getElementsByTagName("input")[0].classList.add("barred");
+                        document.getElementsByTagName("button")[0].setAttribute("disabled", "disabled");
+                        document.getElementsByTagName("button")[0].classList.remove("botao");
+                        document.getElementsByTagName("button")[0].classList.add("botaop");
+
                         break;
                 }
             }

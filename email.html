@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/efeitos.js"></script>
-    <!--<script type="text/javascript" src="js/ajax.js"></script>-->
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/ajaxsenha.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -13,7 +15,7 @@
 </head>
 <body>
 <img src="image/LOGO-CS.png" class="logo"/>
-<div class="foto"><img class="user" src="image/user.png"/></div>
+<div class="user"></div>
 <div id="card" class="card">
     <div id="overflow" class="overflow">
         <div id="teste" class="flexContainer">
@@ -25,7 +27,7 @@
                            pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37" required/>
                     <label class="label" for="email"> E-mail </label>
                     <span class="barra"></span>
-                    <p id="error">Email inexistente</p>
+                    <p id="error">Insira um email</p>
                 </div>
                 <div class="espacamento"></div>
                 <div>
@@ -38,7 +40,7 @@
                     <input type="password" id="senha" class="caixa" minlength="6" name="senha" required/>
                     <label class="label" for="senha"> Senha </label>
                     <span class="barra"></span>
-                    <a href="esqsenha.html"> Esqueci minha senha </a>
+                    <a id="recSenha" style="cursor:default"> Esqueci minha senha </a>
                     <p>É necessario no mínimo 6 caracteres</p>
                 </div>
 
@@ -47,8 +49,20 @@
                     <button id="botao2" class="botaop" disabled> ENTRAR</button>
                 </div>
             </div>
-
-
+            <div class="divEsq">
+                <i class="material-icons esq">arrow_back</i>
+                <div class="inputelabel">
+                    <input type="email" id="esqSenha" class="caixa" autocomplete="off"
+                           pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37" required/>
+                    <label class="label" for="email"> Recuperação de Senha </label>
+                    <span class="barra"></span>
+                    <p>Email inválido</p>
+                </div>
+                <div class="espacamento"></div>
+                <div>
+                    <button class="botaop" disabled> ENVIAR</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
