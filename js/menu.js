@@ -1,30 +1,35 @@
+var div = document.getElementsByTagName("div");
+var icone = document.getElementsByTagName("i");
 
 window.onload = function inicio() {
-    document.getElementsByClassName("material-icons")[0].addEventListener("click", function () {
-        document.querySelector(".nav.close").classList.remove("close");
-        // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-        document.getElementsByClassName("material-icons")[1].addEventListener("click", function () {
-            document.querySelector(".nav").classList.add("close");
-            document.getElementsByTagName("div")[6].classList.remove("show");
-            document.getElementsByTagName("div")[10].classList.remove("show");
-            document.getElementsByTagName("div")[3].classList.remove("active");
-            document.getElementsByTagName("div")[7].classList.remove("active");
-            document.getElementsByTagName("i")[2].classList.remove("baixo");
-            document.getElementsByTagName("i")[3].classList.remove("baixo");
-            document.getElementsByTagName("div")[5].classList.add("close");
-            document.getElementsByTagName("div")[9].classList.add("close");
-        })
+    icone[0].addEventListener("click", function () {
+        div[1].classList.remove("close");
     });
-    document.getElementsByTagName("div")[3].addEventListener("click", function () {
-        document.getElementsByTagName("div")[5].classList.toggle("close");
-        document.getElementsByTagName("div")[6].classList.toggle("show");
-        document.getElementsByTagName("div")[3].classList.toggle("active");
-        document.getElementsByTagName("i")[2].classList.toggle("baixo");
+
+    icone[1].addEventListener("click", function () {
+        div[1].classList.add("close");
+        div[6].classList.remove("show");
+        div[10].classList.remove("show");
+        div[3].classList.remove("active");
+        div[7].classList.remove("active");
+        icone[2].classList.remove("baixo");
+        icone[3].classList.remove("baixo");
+        div[5].classList.add("close");
+        div[9].classList.add("close");
     });
-    document.getElementsByTagName("div")[7].addEventListener("click", function () {
-        document.getElementsByTagName("div")[9].classList.toggle("close");
-        document.getElementsByTagName("div")[10].classList.toggle("show");
-        document.getElementsByTagName("div")[7].classList.toggle("active");
-        document.getElementsByTagName("i")[3].classList.toggle("baixo");
+
+    div[3].addEventListener("click", function () {
+        div[5].classList.toggle("close");
+        div[6].classList.toggle("show");
+        div[3].classList.toggle("active");
+        icone[2].classList.toggle("baixo");
     });
+
+    div[7].addEventListener("click", function () {
+        div[9].classList.toggle("close");
+        div[10].classList.toggle("show");
+        div[7].classList.toggle("active");
+        icone[3].classList.toggle("baixo");
+    });
+
 };
