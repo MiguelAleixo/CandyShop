@@ -18,6 +18,7 @@ body {
     max-height: 142px;
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
     border-radius: 2px;
+    overflow: hidden;
     position: relative;
     transition: all 280ms ease;
 }
