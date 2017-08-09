@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/produtos.js"></script>
+    <script type="text/javascript" src="js/pesquisa-produtos.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
@@ -11,33 +13,51 @@
 </head>
 <body>
 <div class="bar"><img src="image/LOGO-CSBRANCO.png" class="logo"/>
-    <i class="material-icons" tabindex="1">menu</i>
+    <i class="material-icons iconsMenu" tabindex="1">menu</i>
     <img src="image/user.png" class="user">
 </div>
 <div class="nav close">
     <div class="navBar">
-        <i class="material-icons arrow" tabindex="1">arrow_back</i>
+        <i class="material-icons arrow iconsMenu" tabindex="1">arrow_back</i>
         <img src="image/LOGO-CS.png" class="logo"/></div>
     <div id='blocoUm' class="navInside">
-        <div class="buttonText1"> Admnistração</div>
-        <i class="material-icons seta" tabindex='1'>keyboard_arrow_right</i>
-        <span class="sombraOpt"></span>
+        <div class="buttonText1"> Administração
+        </div>
+        <i class="material-icons seta iconsMenu" tabindex='1'>keyboard_arrow_right</i>
     </div>
     <div class="links close">
-        <div class="buttonText2"> Produtos</div>
+        <div class="buttonText2"> Produtos
+        </div>
     </div>
     <div class="navInside">
-        <div class="buttonText1"> Segurança</div>
-        <i class="material-icons seta" tabindex='1'>keyboard_arrow_right</i>
-        <span class="sombraOpt"></span>
+        <div class="buttonText1"> Segurança
+        </div>
+        <i class="material-icons seta iconsMenu" tabindex='1'>keyboard_arrow_right</i>
     </div>
     <div class="links close">
-        <div class="buttonText2"> Usuários</div>
+        <div class="buttonText2"> Usuários
+        </div>
     </div>
 </div>
 <div class="logoff close">
-    <div class="buttonText2"> Sair </div>
+    <div class="buttonText2"> Sair</div>
 </div>
-<div class="background"></div>
+
+
+<nav class="cardProdutos">
+    <div class="textProd"> Produtos
+        <i class="material-icons filter" tabindex='1'>filter_list</i></div>
+        <div class="pesquisa">
+            <input type="text"  placeholder="Pesquisar" class='pesquisaProd'>
+            <i class="material-icons search" tabindex='1' >search</i>
+            <i class="material-icons exit" tabindex='1'>clear</i></div>
+    <span class="columnHead nome"> Nome </span>
+    <span class="columnHead quant"> Quantidade </span>
+    </div>
+    <table id="dadosProd" class="dadosProd">
+
+    </table>
+</nav>
+<!--<div class="background"></div>-->
 </body>
 </html>

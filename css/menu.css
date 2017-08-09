@@ -25,17 +25,6 @@ body {
     transition: 0.2s;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
 }
-/*.navUser{*/
-    /*width: 320px;*/
-    /*height: 100%;*/
-    /*position: fixed;*/
-    /*z-index: 1;*/
-    /*background-color: #fff;*/
-    /*overflow-x: hidden;*/
-    /*transition: 0.5s;*/
-    /*box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);*/
-    /*right: 0;*/
-/*}*/
 .nav.close{
     width: 320px;
     height: 100%;
@@ -85,8 +74,10 @@ body {
 .buttonText1{
     position: absolute;
     padding: 19px;
+    background-color: transparent;
 }
 .buttonText2{
+    overflow: hidden;
     bottom: 57px;
     position: relative;
     padding: 19px;
@@ -109,11 +100,6 @@ body {
 .move{
     right: 174px;
 }
-/*.userHover{*/
-    /*transform: scale(1.1);*/
-    /*box-shadow: 0 4px 12px rgba(0,0,0,0.15);*/
-/*}*/
-
 div.panel {
     padding: 0 18px;
     background-color: white;
@@ -124,29 +110,12 @@ div.panel {
 .arrow{
     color: #000;
 }
-.material-icons{
+.iconsMenu{
     position: relative;
     margin: 17px;
     z-index: 1;
     outline: none;
 }
-.sombraOpt{
-    border-radius: 50%;
-    position: absolute;
-    top: 9px;
-    right: 9px;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0,0,0,0.1);
-    display: block;
-    transform: scale(0);
-    transition: 0.5s;
-}
-.material-icons.seta:focus ~ .sombraOpt{
-    transform: scale(1);
-    background-color: transparent;
-}
-
 .seta{
     position: absolute;
     right: 0;
@@ -198,7 +167,145 @@ h1{
     background-color: rgba(0,0,0,0.3);
     display: block;
 }
-
+.cardProdutos{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+    padding-bottom: 24px;
+    background-color: #fff;
+    top: 100px;
+    width: 700px;
+    min-height: 170px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+}
+.produto{
+    border-bottom: 1px solid #E0E0E0;
+}
+.produto:first-child{
+    border-top: 1px solid #E0E0E0;
+}
+/*::-webkit-scrollbar {*/
+    /*display: none;*/
+/*}*/
+.textProd{
+    padding: 23px 24px 16px 24px;
+    height: 41px;
+    color: rgba(0,0,0,0.87);
+    font-size: 20px;
+}
+.pesquisa{
+    padding: 23px 24px 16px 24px;
+    height: 41px;
+    display: none;
+}
+.caixa{
+    height: 26px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding-bottom: 0;
+    display: block;
+    transition: 1s;
+}
+.pesquisaProd{
+    width: 575px;
+    margin-left: 13px;
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+.dadosProd{
+    margin-top: 32px;
+    border-collapse: collapse;
+}
+.nomeProd{
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0,0,0,0.87);
+    width: 100%;
+    padding: 17px;
+    box-sizing: border-box;
+    list-style: none;
+}
+.quantProd{
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0,0,0,0.87);
+    text-align: center;
+    padding: 17px;
+    box-sizing: border-box;
+    list-style: none;
+}
+.fotoProd{
+    margin-left: 24px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+.filter{
+    float: right;
+    opacity: .54;
+    outline: none;
+    transition: 0.5s;
+    border-radius: 50%;
+    padding: 8px;
+    margin: -8px;
+}
+.search{
+    float: left;
+    opacity: .54;
+    outline: none;
+    transition: 0.5s;
+    border-radius: 50%;
+    padding: 8px;
+    margin: -8px;
+    margin-left: 0px;
+}
+.exit{
+    float: right;
+    opacity: .54;
+    outline: none;
+    transition: 0.5s;
+    border-radius: 50%;
+    padding: 8px;
+    margin: -8px;
+}
+.formIcons{
+    float: right;
+    outline: none;
+    opacity: .54;
+    transition: 0.5s;
+    padding: 8px;
+    border-radius: 50%;
+}
+.formIcons:hover{
+    transform: scale(1.1);
+}
+.formIcons:focus{
+    background-color: rgba(0,0,0,0.12);
+}
+.formIcons.edit{
+    margin: 0 0 0 24px;
+}
+.formIcons.flag{
+    margin: 0 16px 0 0;
+}
+.columnHead{
+    position: absolute;
+    font-family: 'Roboto Medium', sans-serif;
+    font-size: 13px;
+    color: rgba(0,0,0,0.54);
+}
+.columnHead.nome{
+    left: 70px;
+}
+.columnHead.quant{
+    right: 140px;
+}
 
 
 

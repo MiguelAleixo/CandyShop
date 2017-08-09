@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
         request.onload = function() {
             var resp = JSON.parse(request.responseText);
             if (request.status >= 200 && request.status < 400) {
-                window.open(menu.html)
+                alert('senha correta');
             } else {
                 console.log(resp);
                 switch (resp.code){
