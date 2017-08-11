@@ -30,15 +30,6 @@ window.addEventListener('load', function () {
     }, {
         nome: 'Sensação',
         quant: 30,
-    }, {
-        nome: 'Kit-Kat',
-        quant: 25,
-    }, {
-        nome: 'Paçoca',
-        quant: 100,
-    }, {
-        nome: 'Fanta',
-        quant: 54,
     }];
 
 
@@ -73,6 +64,12 @@ window.addEventListener('load', function () {
             document.getElementsByClassName('flag')[i].innerText = 'flag';
             document.getElementsByClassName('nomeProd')[i].innerText = lista[i].nome;
             document.getElementsByClassName('quantProd')[i].innerText = lista[i].quant;
+
+            document.getElementsByClassName('flag')[i].onclick = function(){
+                var produto = document.getElementsByClassName('produto');
+                    this.parentElement.parentElement.classList.toggle('desativado');
+                this.parentElement.parentElement.setAttribute('disabled', 'disabled');
+            }
         }
     }
     montarLista(listaProduto);
@@ -86,21 +83,35 @@ window.addEventListener('load', function () {
     document.getElementsByClassName('exit')[0].onclick = function () {
         document.getElementsByClassName('textProd')[0].style.display = 'block';
         document.getElementsByClassName('pesquisa')[0].style.display = 'none';
-    }
+    };
+    document.getElementsByClassName('buttonText2')[0].onclick = function () {
+        var icone = document.getElementsByTagName('i');
+        document.getElementsByClassName('nav')[0].classList.add("close");
+        document.getElementsByClassName('buttonText2')[0].classList.remove("show");
+        document.getElementsByClassName('buttonText2')[1].classList.remove("show");
+        document.getElementsByClassName('navInside')[0].classList.remove("activeB");
+        document.getElementsByClassName('navInside')[1].classList.remove("activeB");
+        icone[2].classList.remove("baixo");
+        icone[3].classList.remove("baixo");
+        document.getElementsByClassName('links')[0].classList.add("close");
+        document.getElementsByClassName('links')[1].classList.add("close");
+        document.getElementsByClassName('cardProdutos')[0].style.transform = 'scale(1)';
+        document.getElementsByClassName('bar')[0].classList.add('barExtend');
+    };
 
 
 
     // PESQUISA
 
     var pesquisa = document.getElementsByClassName('pesquisaProd')[0];
-    pesquisa.onkeydown = function () {
-        setTimeout(function () {
-            var listaFiltrada = listaProduto.filter(function (item) {
-                return (item.nome.toLowerCase().indexOf(pesquisa.value.toLowerCase()) !== -1);
-            });
-            montarLista(listaFiltrada)
-        })
-    };
+    // pesquisa.onkeydown = function () {
+    //     setTimeout(function () {
+    //         var listaFiltrada = listaProduto.filter(function (item) {
+    //             return (item.nome.toLowerCase().indexOf(pesquisa.value.toLowerCase()) !== -1);
+    //         });
+    //         montarLista(listaFiltrada)
+    //     })
+    // };
 });
 
 
