@@ -1,16 +1,13 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
-body {
+body{
     background: url("../image/fundo.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
-#cs{
-    margin-left: 50%;
-}
-.card{
+.login-card{
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
@@ -22,22 +19,19 @@ body {
     position: relative;
     transition: all 280ms ease;
 }
-.extend{
+.extend-for-password{
     max-height: 216px;
 }
-.extend2{
+.extend-for-forgot{
     max-height: 170px;
 }
-#login{
-    margin-left: 65px;
-    padding-top: 50px;
-}
-.inputelabel{
+
+.input-design{
     position: relative;
     padding-top: 16px;
     padding-bottom: 16px;
 }
-.caixa {
+.input-box{
     width: 100%;
     height: 26px;
     border-width: 1px;
@@ -49,7 +43,7 @@ body {
     padding-bottom: 0;
     display: block;
 }
-.label{
+.input-name{
     color: rgba(0, 0, 0, 0.42);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -58,13 +52,13 @@ body {
     top: 18px;
     transition: all 280ms ease;
 }
-.barra{
+.input-bar{
     position: relative;
     display: block;
     width: 100%;
     bottom: 26px;
 }
-.barra:before, .barra:after{
+.input-bar:before, .input-bar:after{
     content: "";
     height: 2px;
     width: 0;
@@ -74,13 +68,13 @@ body {
     transition: all 280ms ease;
     top: 25px;
 }
-.barra:before{
+.input-bar:before{
     left: 50%;
 }
-.barra:after{
+.input-bar:after{
     right: 50%;
 }
-.botao{
+.button-design-active{
     background-color: #e91e63;
     color: #fff;
     width: 100%;
@@ -96,13 +90,13 @@ body {
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
     transition: all 280ms ease;
 }
-.botao:hover, .botao:focus, .botao:active{
+.button-design-active:hover, .button-design-active:focus, .button-design-active:active{
     background-color: #D81B60;
 }
-.botao:active{
+.button-design-active:active{
     box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 3px rgba(0,0,0,0.12), 0 4px 15px 0 rgba(0,0,0,0.20);
 }
-.botaop {
+.button-design{
     background-color: rgba(0, 0, 0, 0.12);
     color: rgba(0, 0, 0, 0.26);
     width: 100%;
@@ -117,44 +111,44 @@ body {
     border-style: none;
     transition: all 280ms ease;
 }
-input:valid{
+.input-box:valid{
     border-bottom: 1px solid rgba(0,0,0,0.42);
 }
-input:valid ~ .barra:before,
-input:valid ~ .barra:after{
+.input-box:valid ~ .input-bar:before,
+.input-box:valid ~ .input-bar:after{
     background-color: #e91e63 !important;
 }
-input:focus ~ .barra:before,
-input:focus ~ .barra:after {
+.input-box:focus ~ .input-bar:before,
+.input-box:focus ~ .input-bar:after {
     width: 50%;
 }
 
-label.sobelabel{
+.up-label{
     top: 4px;
     font-size: 12px;
     transition: all 280ms ease;
 }
-label.cinza{
+.grey{
     color: rgba(0,0,0,0.42);
     transition: all 280ms ease;
 }
 
-label.rosa{
+.pink{
      color: #e91e63;
      transition: all 280ms ease;
  }
-label.vermelho{
+.red{
     color: rgba(255,0,0,0.87);
     transition: all 280ms ease;
 }
-input.barred{
+.input-box.bar-red{
     border-color: rgba(255,0,0,0.87);
 }
-p{
+.error-text{
     display: none;
     margin-top: 5px;
 }
-p.alert{
+.alert{
     display: block;
     font-size: 12px;
     color: rgba(255,0,0,0.87);
@@ -162,13 +156,13 @@ p.alert{
     margin-top: 5px;
     position: absolute;
 }
-div.espacamento{
+.spacing{
     padding-top: 16px;
 }
-div.espacamentocoma{
+.spacing-password{
     padding-top: 41px;
 }
-img.logo{
+.logo-CS{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 75px;
@@ -177,7 +171,7 @@ img.logo{
 }
 
 @media screen and (max-width: 450px){
-    img.logo{
+    .logo-CS{
         width: 296px;
         margin-top: 120px;
         margin-bottom: 40px;;
@@ -191,7 +185,8 @@ img.logo{
         background-size: cover;
     }
 }
-a{
+
+.recovery-password{
     font-size: 12px;
     color: #e91e63;
     font-family: 'Roboto', sans-serif;
@@ -201,12 +196,12 @@ a{
     margin-left: 75px;
     margin-right: 75px;
 }
-div.user{
+.user-photo{
     font-size: 60px;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    padding-top: 14px;
+    padding-top: 16px;
     background-color: #e91e63;
     border-radius: 50%;
     margin-bottom: -50px;
@@ -221,44 +216,65 @@ div.user{
     z-index: 1;
     transition: all 280ms ease;
 }
-div.show{
+.show{
     transform: scale(1);
 }
-i.material-icons{
+.material-icons{
     position: relative;
     bottom: 24px;
     right: 4px;
     cursor: default;
 }
-i.material-icons.esq{
+.back-to-password{
     position: relative;
     bottom: 4px;
     right: 4px;
     cursor: default;
 }
-.slide{
+.change-for-password{
     transform: translateX(-100%);
 }
-.slide2{
+.change-for-forgot{
     transform: translateX(-200%);
 }
 .overflow{
     overflow: hidden;
 }
-.flexContainer{
+.flex-container{
     transition: all 280ms ease;
     display: flex;
 }
-.divEmail{
+.email-form{
     min-width: 100%;
     padding: 16px;
 }
-.divSenha{
+.password-form{
     min-width: 100%;
     padding: 16px;
     margin-top: 21px;
 }
-.divEsq{
+.forgot-password-form{
     min-width: 100%;
     padding: 16px;
+}
+.sent-success {
+    border: 1px solid #000;
+    opacity: 0;
+    transition: 280ms cubic-bezier(0.4, 0.0, 0.2, 1);
+     transform: scale(0.4);
+    width: 300px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    bottom: 62px;
+}
+.sent{
+     transform: scale(1);
+    opacity: 1;
+    bottom: 200px;
+
 }

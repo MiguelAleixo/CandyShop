@@ -2,67 +2,65 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/efeitos.js"></script>
-    <script type="text/javascript" src="js/ajax.js"></script>
-    <script type="text/javascript" src="js/ajaxsenha.js"></script>
+    <script type="text/javascript" src="js/email-ajax.js"></script>
+    <script type="text/javascript" src="js/password-ajax.js"></script>
+    <script type="text/javascript" src="js/forgot-password-ajax.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/gif" href="./image/ICONE-CS.png" />
     <title>Candy Shop</title>
 </head>
 <body>
-<img src="image/LOGO-CS.png" class="logo"/>
-<div class="user"></div>
-<div id="card" class="card">
-    <div id="overflow" class="overflow">
-        <div id="teste" class="flexContainer">
-
-
-            <div class="divEmail">
-                <div class="inputelabel">
-                    <input type="email" id="email" autocomplete="off" class="caixa"
+<img src="image/LOGO-CS.png" class="logo-CS"/>
+<div class="user-photo"></div>
+<div id="login-card" class="login-card">
+    <div class="overflow">
+        <div class="flex-container">
+            <form class="email-form" onsubmit="return false">
+                <div class="input-design">
+                    <input type="email" id="email" name="email" autocomplete="off" class="input-box"
                            pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37" required/>
-                    <label class="label" for="email"> E-mail </label>
-                    <span class="barra"></span>
-                    <p id="error">Insira um email</p>
+                    <label class="input-name" for="email"> E-mail </label>
+                    <span class="input-bar"></span>
+                    <p class="error-text">Insira um email</p>
                 </div>
-                <div class="espacamento"></div>
+                <div class="spacing"></div>
                 <div>
-                    <button id='botao' class="botaop" disabled> PRÓXIMO</button>
+                    <button class="button button-design" disabled> PRÓXIMO </button>
                 </div>
-            </div>
-            <div class="divSenha">
-                <i class="material-icons">arrow_back</i>
-                <div class="inputelabel">
-                    <input type="password" id="senha" class="caixa" minlength="6" name="senha" required/>
-                    <label class="label" for="senha"> Senha </label>
-                    <span class="barra"></span>
-                    <a id="recSenha" style="cursor:default"> Esqueci minha senha </a>
-                    <p>É necessario no mínimo 6 caracteres</p>
+            </form>
+            <form class="password-form" onsubmit="return false">
+                <i class="material-icons back-to-email">arrow_back</i>
+                <div class="input-design">
+                    <input type="password" id="password" class="input-box" minlength="6" name="password" required/>
+                    <label class="input-name" for="password"> Senha </label>
+                    <span class="input-bar"></span>
+                    <a id="recovery-password" class='recovery-password' style="cursor:default"> Esqueci minha senha </a>
+                    <p class="error-text">É necessario no mínimo 6 caracteres</p>
                 </div>
 
-                <div class="espacamentocoma"></div>
+                <div class="spacing-password"></div>
                 <div>
-                    <button id="botao2" class="botaop" disabled> ENTRAR</button>
+                    <button class="button button-design" disabled> ENTRAR </button>
                 </div>
-            </div>
-            <div class="divEsq">
-                <i class="material-icons esq">arrow_back</i>
-                <div class="inputelabel">
-                    <input type="email" id="esqSenha" class="caixa" autocomplete="off"
+            </form>
+            <form class="forgot-password-form" onsubmit="return false">
+                <i class="material-icons back-to-password">arrow_back</i>
+                <div class="input-design">
+                    <input type="email" id="forgot-password" class="input-box" autocomplete="off"
                            pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@smn.com.br$" maxlength="37" required/>
-                    <label class="label" for="email"> Recuperação de Senha </label>
-                    <span class="barra"></span>
-                    <p>Email inválido</p>
+                    <label class="input-name" for="forgot-password"> Recuperação de Senha </label>
+                    <span class="input-bar"></span>
+                    <p class="error-text">Email inválido</p>
                 </div>
-                <div class="espacamento"></div>
+                <div class="spacing"></div>
                 <div>
-                    <button class="botaop" disabled> ENVIAR</button>
+                    <button class="button button-design" disabled> ENVIAR </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

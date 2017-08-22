@@ -1,230 +1,201 @@
-window.addEventListener('load', function (){
-    document.querySelectorAll("input")[0].addEventListener("focus", function () {
-        document.getElementsByTagName("label")[0].classList.add("sobelabel");
-        document.getElementsByTagName("label")[0].classList.add("vermelho");
-        document.getElementsByTagName("p")[0].classList.add("alert");
-        var input = document.getElementById("email");
-        var regex = input.getAttribute("pattern");
-        regex = new RegExp(regex);
-        if (regex.test(input.value)) {
-            document.getElementsByTagName("label")[0].classList.add("rosa");
-            document.getElementsByTagName("label")[0].classList.remove("vermelho");
-            document.getElementsByTagName("p")[0].classList.remove("alert");
-            document.getElementsByTagName("button")[0].removeAttribute("disabled");
-            document.getElementsByTagName("button")[0].classList.add("botao");
-            document.getElementsByTagName("button")[0].classList.remove("botaop");
+window.addEventListener('load', function () {
+    var password = document.querySelector('#password');
+    var email = document.querySelector('#email');
+    var forgot = document.querySelector('#forgot-password');
+    var regex = email.getAttribute('pattern');
+    regex = new RegExp(regex);
+    function getClass(classe){
+        return document.querySelectorAll(classe);
+    }
+
+    email.onfocus = function () {
+        getClass('.input-name')[0].classList.add('up-label', 'red');
+        getClass('.error-text')[0].classList.add('alert');
+
+        if (regex.test(email.value)) {
+            getClass('.input-name')[0].classList.add('pink');
+            getClass('.input-name')[0].classList.remove('red');
+            getClass('.error-text')[0].classList.remove('alert');
+            getClass('.button')[0].removeAttribute('disabled');
+            getClass('.button')[0].classList.add('button-design-active');
+            getClass('.button')[0].classList.remove('button-design');
         }
         else {
-            document.getElementsByTagName("label")[0].classList.add("vermelho");
+            getClass('.input-name')[0].classList.add('red');
         }
-    });
-    document.querySelectorAll("input")[0].addEventListener("blur", function () {
-        var teste = document.getElementById("email").value.length;
-        var input = document.getElementById("email");
-        var regex = input.getAttribute("pattern");
-        regex = new RegExp(regex);
-        if (regex.test(input.value)) {
-            document.getElementsByTagName("label")[0].classList.remove("vermelho");
-            document.getElementsByTagName("label")[0].classList.remove("rosa");
-            document.getElementsByTagName("button")[0].removeAttribute("disabled");
+    };
+    email.onblur = function () {
+        if (regex.test(email.value)) {
+            getClass('.input-name')[0].classList.remove('red', 'pink');
+            getClass('#email')[0].classList.remove('bar-red');
+            getClass('.button')[0].removeAttribute('disabled');
         }
-        else if (regex.test(!input.value)) {
-            document.getElementsByTagName("button")[0].setAttribute("disabled", "disabled");
+        else if (regex.test(!email.value)) {
+            getClass('button')[0].setAttribute('disabled', 'disabled');
         }
-        else if (teste === 0) {
-            document.getElementsByTagName("label")[0].classList.remove("sobelabel");
-        }
-        var barra = document.getElementById("email");
-        var regex2 = input.getAttribute("pattern");
-        regex2 = new RegExp(regex2);
-        if (regex2.test(barra.value)) {
-            document.getElementsByTagName("input")[0].classList.remove("barred");
-        }
-        else {
-            document.getElementsByTagName("input")[0].classList.add("barred");
-        }
-    });
-    document.querySelectorAll("input")[0].addEventListener("keydown", function () {
-        setTimeout(function () {
-            var input = document.getElementById("email");
-            var regex = input.getAttribute("pattern");
-            regex = new RegExp(regex);
-            if (regex.test(input.value)) {
-                document.getElementsByTagName("label")[0].classList.add("rosa");
-                document.getElementsByTagName("label")[0].classList.remove("vermelho");
-                document.getElementsByTagName("p")[0].classList.remove("alert");
-                document.getElementsByTagName("button")[0].classList.add("botao");
-                document.getElementsByTagName("button")[0].classList.remove("botaop");
-                document.getElementsByTagName("button")[0].removeAttribute("disabled");
-            }
-            else {
-                document.getElementsByTagName("label")[0].classList.remove("rosa");
-                document.getElementsByTagName("label")[0].classList.add("vermelho");
-                document.getElementsByTagName("p")[0].classList.add("alert");
-                document.getElementsByTagName("button")[0].classList.remove("botao");
-                document.getElementsByTagName("button")[0].classList.add("botaop");
-                document.getElementsByTagName("button")[0].setAttribute("disabled", "disabled");
-            }
-        });
-    });
-});
-window.onload = function inicio() {
-    document.querySelectorAll("input")[1].addEventListener("focus", function () {
-        document.getElementsByTagName("label")[1].classList.add("sobelabel");
-        document.getElementsByTagName("label")[1].classList.add("vermelho");
-        document.getElementsByTagName("p")[1].classList.add("alert");
-        var valid = document.getElementById("senha").value.length;
-        if (valid >= 6) {
-            document.getElementsByTagName("label")[1].classList.add("rosa");
-            document.getElementsByTagName("label")[1].classList.remove("vermelho");
-            document.getElementsByTagName("p")[1].classList.remove("alert");
-            document.getElementsByTagName("button")[1].removeAttribute("disabled");
-            document.getElementsByTagName("button")[1].classList.add("botao");
-            document.getElementsByTagName("button")[1].classList.remove("botaop");
+        else if (email.value.length === 0) {
+            getClass('.input-name')[0].classList.remove('up-label');
+            getClass('#email')[0].classList.add('bar-red');
         }
         else{
-            document.getElementsByTagName("label")[1].classList.remove("rosa");
-            document.getElementsByTagName("label")[1].classList.add("vermelho");
-            document.getElementsByTagName("button")[1].setAttribute("disabled","disabled");
+            getClass('#email')[0].classList.add('bar-red');
         }
-    });
-    document.querySelectorAll("input")[1].addEventListener("blur", function () {
-        var input = document.getElementById("senha").value.length;
-        if (input > 0 && input < 6) {
-            document.getElementsByTagName("label")[1].classList.add("vermelho");
-            document.getElementsByTagName("button")[1].setAttribute("disabled","disabled");
-        }
-        else if (input >= 6) {
-            document.getElementsByTagName("label")[1].classList.add("cinza");
-            document.getElementsByTagName("label")[1].classList.remove("vermelho");
-            document.getElementsByTagName("label")[1].classList.remove("rosa");
-            document.getElementsByTagName("button")[1].removeAttribute("disabled");
-
-        }
-        else {
-            document.getElementsByTagName("label")[1].classList.remove("sobelabel");
-        }
-        var barra = document.getElementById("senha").value.length;
-        if (barra < 6){
-            document.getElementsByTagName("input")[1].classList.add("barred");
-        }
-        else if (barra >= 6) {
-            document.getElementsByTagName("input")[1].classList.remove("barred");
-        }
-    });
-    document.querySelectorAll("input")[1].addEventListener("keydown", function () {
+    };
+    email.onkeydown = function () {
         setTimeout(function () {
-            var valid = document.getElementById("senha").value.length;
-            if (valid >= 6) {
-                document.getElementsByTagName("label")[1].classList.add("rosa");
-                document.getElementsByTagName("label")[1].classList.remove("vermelho");
-                document.getElementsByTagName("p")[1].classList.remove("alert");
-                document.getElementsByTagName("button")[1].classList.add("botao");
-                document.getElementsByTagName("button")[1].classList.remove("botaop");
-                document.getElementsByTagName("button")[1].removeAttribute("disabled");
-            }
-            else{
-                document.getElementsByTagName("label")[1].classList.remove("rosa");
-                document.getElementsByTagName("label")[1].classList.add("vermelho");
-                document.getElementsByTagName("p")[1].classList.add("alert");
-                document.getElementsByTagName("button")[1].classList.remove("botao");
-                document.getElementsByTagName("button")[1].classList.add("botaop");
-                document.getElementsByTagName("button")[1].setAttribute("disabled","disabled");
-            }
-        });
-    });
-};
-window.addEventListener('load', function (){
-    document.querySelectorAll("input")[2].addEventListener("focus", function () {
-        document.getElementsByTagName("label")[2].classList.add("sobelabel");
-        document.getElementsByTagName("label")[2].classList.add("vermelho");
-        document.getElementsByTagName("p")[2].classList.add("alert");
-        var input = document.getElementById("email");
-        var regex = input.getAttribute("pattern");
-        regex = new RegExp(regex);
-        if (regex.test(input.value)) {
-            document.getElementsByTagName("label")[2].classList.add("rosa");
-            document.getElementsByTagName("label")[2].classList.remove("vermelho");
-            document.getElementsByTagName("p")[2].classList.remove("alert");
-            document.getElementsByTagName("button")[2].removeAttribute("disabled");
-            document.getElementsByTagName("button")[2].classList.add("botao");
-            document.getElementsByTagName("button")[2].classList.remove("botaop");
-        }
-        else {
-            document.getElementsByTagName("label")[2].classList.add("vermelho");
-        }
-    });
-    document.querySelectorAll("input")[2].addEventListener("blur", function () {
-        var teste = document.getElementById("email").value.length;
-        var input = document.getElementById("email");
-        var regex = input.getAttribute("pattern");
-        regex = new RegExp(regex);
-        if (regex.test(input.value)) {
-            document.getElementsByTagName("label")[2].classList.remove("vermelho");
-            document.getElementsByTagName("label")[2].classList.remove("rosa");
-            document.getElementsByTagName("button")[2].removeAttribute("disabled");
-        }
-        else if (regex.test(!input.value)) {
-            document.getElementsByTagName("button")[2].setAttribute("disabled", "disabled");
-        }
-        else if (teste === 0) {
-            document.getElementsByTagName("label")[2].classList.remove("sobelabel");
-        }
-        var barra = document.getElementById("email");
-        var regex2 = input.getAttribute("pattern");
-        regex2 = new RegExp(regex2);
-        if (regex2.test(barra.value)) {
-            document.getElementsByTagName("input")[2].classList.remove("barred");
-        }
-        else {
-            document.getElementsByTagName("input")[2].classList.add("barred");
-        }
-    });
-    document.querySelectorAll("input")[2].addEventListener("keydown", function () {
-        setTimeout(function () {
-            var input = document.getElementById("email");
-            var regex = input.getAttribute("pattern");
-            regex = new RegExp(regex);
-            if (regex.test(input.value)) {
-                document.getElementsByTagName("label")[2].classList.add("rosa");
-                document.getElementsByTagName("label")[2].classList.remove("vermelho");
-                document.getElementsByTagName("p")[2].classList.remove("alert");
-                document.getElementsByTagName("button")[2].classList.add("botao");
-                document.getElementsByTagName("button")[2].classList.remove("botaop");
-                document.getElementsByTagName("button")[2].removeAttribute("disabled");
+            if (regex.test(email.value)) {
+                getClass('.input-name')[0].classList.add('pink');
+                getClass('.input-name')[0].classList.remove('red');
+                getClass('.error-text')[0].classList.remove('alert');
+                getClass('.button')[0].classList.add('button-design-active');
+                getClass('.button')[0].classList.remove('button-design');
+                getClass('.button')[0].removeAttribute('disabled');
             }
             else {
-                document.getElementsByTagName("label")[2].classList.remove("rosa");
-                document.getElementsByTagName("label")[2].classList.add("vermelho");
-                document.getElementsByTagName("p")[2].classList.add("alert");
-                document.getElementsByTagName("button")[2].classList.remove("botao");
-                document.getElementsByTagName("button")[2].classList.add("botaop");
-                document.getElementsByTagName("button")[2].setAttribute("disabled", "disabled");
+                getClass('.input-name')[0].classList.remove('pink');
+                getClass('.input-name')[0].classList.add('red');
+                getClass('.error-text')[0].classList.add('alert');
+                getClass('.button')[0].classList.add('button-design');
+                getClass('.button')[0].classList.remove('button-design-active');
+                getClass('.button')[0].setAttribute('disabled', 'disabled');
             }
         });
-    });
-});
-window.addEventListener('load', function () {
-    // document.querySelectorAll("button")[0].addEventListener("click", function () {
-    //     document.getElementById("teste").classList.add("slide");
-    //     document.getElementById("card").classList.add("extend");
-    //     document.querySelectorAll("img")[1].classList.add("show");
-    // });
-    document.querySelector("i").addEventListener("click", function (){
-        document.getElementById("teste").classList.remove("slide");
-        document.getElementById("card").classList.remove("extend");
-        document.querySelectorAll("div")[0].classList.remove("show");
-    });
-    document.querySelectorAll("i")[1].addEventListener("click", function (){
-        document.getElementById("teste").classList.add("slide");
-        document.getElementById("teste").classList.remove("slide2");
-        document.getElementById("card").classList.add("extend");
-        document.getElementById("card").classList.remove("extend2");
-        document.querySelectorAll("div")[0].classList.add("show");
-    });
-    document.getElementById("recSenha").addEventListener("click", function () {
-        document.getElementById("teste").classList.add("slide2");
-        document.getElementById("card").classList.add("extend2");
-        document.querySelectorAll("div")[0].classList.remove("show");
-    });
+    };
+    password.onfocus = function () {
+        getClass('.input-name')[1].classList.add('up-label', 'red');
+        getClass('.error-text')[1].classList.add('alert');
+        // getClass('.button')[1].classList.add('button-design-active');
+        if (password.value.length >= 6) {
+            getClass('.input-name')[1].classList.add('pink');
+            getClass('.input-name')[1].classList.remove('red');
+            getClass('.error-text')[1].classList.remove('alert');
+            getClass('.button')[1].removeAttribute('disabled');
+            getClass('.button')[1].classList.add('button-design-active');
+            getClass('.button')[1].classList.remove('button-design');
+        }
+        else {
+            getClass('.input-name')[1].classList.remove('pink');
+            getClass('.input-name')[1].classList.add('red');
+            getClass('.button')[1].setAttribute('disabled', 'disabled');
+        }
+    };
+    password.onblur = function () {
+        if (password.value.length > 0 && password.value.length < 6) {
+            getClass('input-name')[1].classList.add('red');
+            getClass('button')[1].setAttribute('disabled', 'disabled');
+            password.classList.add('bar-red');
+        }
+        else if (password.value.length >= 6) {
+            getClass('.input-name')[1].classList.add('grey');
+            getClass('.input-name')[1].classList.remove('red', 'pink');
+            getClass('.button')[1].removeAttribute('disabled');
+            password.classList.remove('bar-red');
+
+        }
+        else if (password.value.length === 0) {
+            getClass('.input-name')[1].classList.remove('up-label');
+            getClass('#password')[0].classList.add('bar-red');
+        }
+    };
+    password.onkeydown = function () {
+        setTimeout(function () {
+            if (password.value.length >= 6) {
+                getClass('.input-name')[1].classList.add('pink');
+                getClass('.input-name')[1].classList.remove('red');
+                getClass('.error-text')[1].classList.remove('alert');
+                getClass('.button')[1].classList.add('button-design-active');
+                getClass('.button')[1].classList.remove('button-design');
+                getClass('.button')[1].removeAttribute('disabled');
+            }
+            else {
+                getClass('.input-name')[1].classList.remove('pink');
+                getClass('.input-name')[1].classList.add('red');
+                getClass('.error-text')[1].classList.add('alert');
+                getClass('.button')[1].classList.add('button-design');
+                getClass('.button')[1].classList.remove('button-design-active');
+                getClass('.button')[1].setAttribute('disabled', 'disabled');
+            }
+        });
+    };
+
+    forgot.onfocus = function () {
+        getClass('.input-name')[2].classList.add('up-label');
+        getClass('.input-name')[2].classList.add('red');
+        getClass('.error-text')[2].classList.add('alert');
+        if (regex.test(forgot.value)) {
+            getClass('.input-name')[2].classList.add('pink');
+            getClass('.input-name')[2].classList.remove('red');
+            getClass('.error-text')[2].classList.remove('alert');
+            getClass('.button')[2].removeAttribute('disabled');
+            getClass('.button')[2].classList.add('button-design-active');
+            getClass('.button')[2].classList.remove('button-design');
+        }
+        else {
+            getClass('.input-name')[2].classList.add('red');
+        }
+    };
+
+    forgot.onblur = function () {
+        if (regex.test(forgot.value)) {
+            getClass('.input-name')[2].classList.remove('red');
+            getClass('.input-name')[2].classList.remove('pink');
+            getClass('.button')[2].removeAttribute('disabled');
+            forgot.classList.remove('bar-red');
+        }
+        else if (regex.test(!forgot.value)) {
+            getClass('.button')[2].setAttribute('disabled', 'disabled');
+            forgot.classList.add('bar-red');
+
+        }
+        else if (forgot.value.length === 0) {
+            getClass('.input-name')[2].classList.remove('up-label');
+            forgot.classList.add('bar-red');
+        }
+    };
+    forgot.onkeydown = function () {
+        setTimeout(function () {
+            if (regex.test(forgot.value)) {
+                getClass('.input-name')[2].classList.add('pink');
+                getClass('.input-name')[2].classList.remove('red');
+                getClass('.error-text')[2].classList.remove('alert');
+                getClass('.button')[2].classList.add('button-design-active');
+                getClass('.button')[2].classList.remove('button-design');
+                getClass('.button')[2].removeAttribute('disabled');
+            }
+            else {
+                getClass('.input-name')[2].classList.remove('pink');
+                getClass('.input-name')[2].classList.add('red');
+                getClass('.error-text')[2].classList.add('alert');
+                getClass('.button')[2].classList.add('button-design');
+                getClass('.button')[2].classList.remove('button-design-active');
+                getClass('.button')[2].setAttribute('disabled', 'disabled');
+            }
+        });
+    };
+
+
+    getClass('.back-to-email')[0].onclick = function () {
+        getClass('.flex-container')[0].classList.remove('change-for-password');
+        getClass('.login-card')[0].classList.remove('extend-for-password');
+        getClass('.user-photo')[0].classList.remove('show');
+
+    };
+    getClass('.back-to-password')[0].onclick = function () {
+        getClass('.flex-container')[0].classList.add('change-for-password');
+        getClass('.flex-container')[0].classList.remove('change-for-forgot');
+        getClass('.login-card')[0].classList.add('extend-for-password');
+        getClass('.login-card')[0].classList.remove('extend-for-forgot');
+        getClass('.user-photo')[0].classList.add('show');
+        getClass('.forgot-password-form')[0].reset();
+        getClass('.input-name')[2].classList.remove('up-label');
+        forgot.classList.remove('bar-red');
+        getClass('.error-text')[2].classList.remove('alert');
+        getClass('.input-name')[2].classList.remove('red');
+
+    };
+    getClass('.recovery-password')[0].onclick = function () {
+        getClass('.flex-container')[0].classList.add('change-for-forgot');
+        getClass('.login-card')[0].classList.add('extend-for-forgot');
+        getClass('.user-photo')[0].classList.remove('show');
+    };
 });

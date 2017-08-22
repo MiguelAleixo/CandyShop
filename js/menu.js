@@ -1,64 +1,148 @@
-var icone = document.getElementsByTagName('i');
-var imagemUser = document.getElementsByTagName('img');
-var corpo = document.getElementsByTagName('body');
-
 window.addEventListener('load', function classes() {
-    icone[0].onclick = function () {
-        document.getElementsByClassName('nav')[0].classList.remove("close");
-        // document.getElementsByClassName('background')[0].classList.add('active');
-        document.getElementsByClassName('logoff')[0].classList.add('close');
-        document.getElementsByClassName('buttonText2')[2].classList.remove('show');
-        corpo[0].classList.remove('active');
-    };
-    // document.getElementsByClassName('background')[0].onclick = function () {
-    //     document.getElementsByClassName('background')[0].classList.remove('active');
-    //     document.getElementsByClassName('nav')[0].classList.add("close");
-    //     document.getElementsByClassName('buttonText2')[0].classList.remove("show");
-    //     document.getElementsByClassName('buttonText2')[1].classList.remove("show");
-    //     document.getElementsByClassName('navInside')[0].classList.remove("active");
-    //     document.getElementsByClassName('navInside')[1].classList.remove("active");
-    //     icone[2].classList.remove("baixo");
-    //     icone[3].classList.remove("baixo");
-    //     document.getElementsByClassName('links')[0].classList.add("close");
-    //     document.getElementsByClassName('links')[1].classList.add("close");
-    // };
-    icone[1].onclick = function () {
-        // document.getElementsByClassName('background')[0].classList.remove('active');
-        document.getElementsByClassName('nav')[0].classList.add("close");
-        document.getElementsByClassName('buttonText2')[0].classList.remove("show");
-        document.getElementsByClassName('buttonText2')[1].classList.remove("show");
-        document.getElementsByClassName('navInside')[0].classList.remove("activeB");
-        document.getElementsByClassName('navInside')[1].classList.remove("activeB");
-        icone[2].classList.remove("baixo");
-        icone[3].classList.remove("baixo");
-        document.getElementsByClassName('links')[0].classList.add("close");
-        document.getElementsByClassName('links')[1].classList.add("close");
-    };
-    document.getElementsByClassName('navInside')[0].onclick = function () {
-        document.getElementsByClassName('links')[0].classList.toggle("close");
-        document.getElementsByClassName('buttonText2')[0].classList.toggle("show");
-        document.getElementsByClassName('navInside')[0].classList.toggle("activeB");
-        icone[2].classList.toggle("baixo");
+    function getClass(classe) {
+        return document.querySelectorAll(classe);
+    }
+
+    function getId(id) {
+        return document.getElementById(id);
+    }
+
+    // ABRIR MENU
+
+    getClass('.menu-icon')[0].onclick = function () {
+        getClass('.nav')[0].classList.remove('close');
     };
 
-    document.getElementsByClassName('navInside')[1].onclick = function () {
-        document.getElementsByClassName('links')[1].classList.toggle("close");
-        document.getElementsByClassName('buttonText2')[1].classList.toggle("show");
-        document.getElementsByClassName('navInside')[1].classList.toggle("activeB");
-        icone[3].classList.toggle("baixo");
+    // FECHAR MENU
+
+    getClass('.menu-icon')[1].onclick = function () {
+        getClass('.nav')[0].classList.add('close');
+        for (var i = 0; i < 2; i++) {
+            getClass('.nav-button')[i].classList.remove('show');
+            getClass('.nav-inside')[i].classList.remove('active-button');
+            getClass('.nav-action')[i].classList.remove('show');
+            getClass('.arrow-list')[i].classList.remove('down');
+            getClass('.action')[i].classList.add('close');
+
+        }
     };
 
-    imagemUser[1].onclick = function () {
-        document.getElementsByClassName('logoff')[0].classList.toggle('close');
-        document.getElementsByClassName('buttonText2')[2].classList.toggle('show');
-        corpo[0].classList.toggle('active');
-        imagemUser[1].style.transform = '';
-    };
-    imagemUser[1].onmousemove = function () {
-        imagemUser[1].style.transform = 'scale(1.1)';
+    // NAVEGAR PELO MENU
+
+    getClass('.nav-inside')[0].onclick = function () {
+        this.classList.toggle('active-button');
+        getClass('.action')[0].classList.toggle('close');
+        getClass('.nav-action')[0].classList.toggle('show');
+        getClass('.arrow-list')[0].classList.toggle('down');
     };
 
-    imagemUser[1].onmouseout = function () {
-        imagemUser[1].style.transform = '';
+    getClass('.nav-inside')[1].onclick = function () {
+        this.classList.toggle('active-button');
+        getClass('.action')[1].classList.toggle('close');
+        getClass('.nav-action')[1].classList.toggle('show');
+        getClass('.arrow-list')[1].classList.toggle('down');
     };
+
+    // ABRIR TELA DE PRODUTO
+
+    getClass('.action')[0].onclick = function () {
+        getClass('.nav')[0].classList.add('close');
+        for (var i = 0; i < 2; i++) {
+            getClass('.nav-button')[i].classList.remove('show');
+            getClass('.nav-inside')[i].classList.remove('active-button');
+            getClass('.nav-action')[i].classList.remove('show');
+            getClass('.arrow-list')[i].classList.remove('down');
+            getClass('.action')[i].classList.add('close');
+        }
+        getClass('.card-position')[0].classList.add('open');
+        getClass('.bar')[0].classList.add('bar-extend');
+    };
+
+    // TELA DE PRODUTO
+
+    // FILTRO
+
+    getClass('.filter')[0].onclick = function () {
+        getClass('.product-text')[0].style.display = 'none';
+        getClass('.search')[0].style.display = 'block';
+    };
+    getClass('.exit')[0].onclick = function () {
+        getClass('.product-text')[0].style.display = 'block';
+        getClass('.search')[0].style.display = 'none';
+    };
+
+    // ADICIONAR PRODUTO
+
+    getClass('.button-add')[0].onclick = function () {
+        getClass('.product-register')[0].classList.add('open');
+        getClass('.card-position')[0].classList.remove('open');
+    };
+    getClass('.cancel-button')[0].onclick = function () {
+        getClass('.input-text')[0].classList.remove('label-blur');
+        getClass('.input-text')[1].classList.remove('label-blur');
+        getClass('.input-text')[2].classList.remove('label-blur');
+        getClass('.product-register')[0].classList.remove('open');
+        getClass('.product-register')[0].reset();
+        getClass('.card-position')[0].classList.add('open');
+        getId('register-button').classList.add('register-button');
+        getId('register-button').classList.remove('cancel-button');
+        getId('register-button').setAttribute('disabled', 'disabled');
+
+    };
+
+    // VALIDAÇÃO
+
+    var inputBox = getClass('.input-box');
+    for (var i = 0; i < inputBox.length; i++) {
+        inputBox[i].onblur = function () {
+            if (this.value.length > 0) {
+                this.classList.add('input-blur');
+                this.nextElementSibling.classList.add('label-blur');
+
+            } else {
+                this.classList.remove('input-blur');
+                this.nextElementSibling.classList.remove('label-blur');
+            }
+        };
+        inputBox[i].onkeydown = function () {
+            setTimeout(function () {
+                if (inputBox[0].value.length > 0 && inputBox[1].value.length > 0 && inputBox[2].value.length > 0) {
+                    getId('register-button').classList.add('cancel-button');
+                    getId('register-button').classList.remove('register-button');
+                    getId('register-button').removeAttribute('disabled')
+
+                } else {
+                    getId('register-button').classList.add('register-button');
+                    getId('register-button').classList.remove('cancel-button');
+                    getId('register-button').setAttribute('disabled', 'disabled');
+                }
+            });
+        };
+    }
+    getClass('.text-area')[0].onblur = function () {
+        if (this.value.length > 0) {
+            this.nextElementSibling.classList.add('text-area-blur');
+        } else {
+            this.nextElementSibling.classList.remove('text-area-blur');
+        }
+    };
+
+    // LOGOFF
+
+    getClass('.user-photo')[0].onfocus = function () {
+        this.style.transform = '';
+        getClass('.logoff')[0].classList.remove('close');
+    };
+    getClass('.user-photo')[0].onblur = function () {
+        this.style.transform = '';
+        getClass('.logoff')[0].classList.add('close');
+    };
+    getClass('.user-photo')[0].onmousemove = function () {
+        this.style.transform = 'scale(1.1)';
+    };
+    getClass('.user-photo')[0].onmouseout = function () {
+        this.style.transform = '';
+    };
+
 });
+
