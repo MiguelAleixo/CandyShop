@@ -9,9 +9,10 @@ window.addEventListener('load', function () {
 
         request.onload = function() {
             var answer = JSON.parse(request.responseText);
-            // var word = getClass('#email')[0].value;
+
             if (request.status >= 200 && request.status < 400) {
                 // getClass('.sent-success')[0].classList.add('sent');
+                alert('deu')
             } else {
                 switch (answer.code){
                     case 1:

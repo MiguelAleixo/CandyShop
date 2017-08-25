@@ -175,12 +175,14 @@ window.addEventListener('load', function () {
 
 
     getClass('.back-to-email')[0].onclick = function () {
+        getClass('.input-box')[1].setAttribute('disabled', 'disabled');
         getClass('.flex-container')[0].classList.remove('change-for-password');
         getClass('.login-card')[0].classList.remove('extend-for-password');
         getClass('.user-photo')[0].classList.remove('show');
 
     };
     getClass('.back-to-password')[0].onclick = function () {
+        getClass('.input-box')[2].setAttribute('disabled','disabled');
         getClass('.flex-container')[0].classList.add('change-for-password');
         getClass('.flex-container')[0].classList.remove('change-for-forgot');
         getClass('.login-card')[0].classList.add('extend-for-password');
@@ -194,6 +196,7 @@ window.addEventListener('load', function () {
 
     };
     getClass('.recovery-password')[0].onclick = function () {
+        getClass('.input-box')[2].removeAttribute('disabled');
         getClass('.flex-container')[0].classList.add('change-for-forgot');
         getClass('.login-card')[0].classList.add('extend-for-forgot');
         getClass('.user-photo')[0].classList.remove('show');

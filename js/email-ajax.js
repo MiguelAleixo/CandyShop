@@ -14,6 +14,7 @@ window.addEventListener('load', function () {
                 getClass('.flex-container')[0].classList.add('change-for-password');
                 getClass('.login-card')[0].classList.add('extend-for-password');
                 getClass('.user-photo')[0].classList.add('show');
+                getClass('.input-box')[1].removeAttribute('disabled');
                 getClass('.user-photo')[0].innerText = word[0];
             } else {
                 switch (answer.code){

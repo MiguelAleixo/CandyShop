@@ -4,13 +4,12 @@ window.addEventListener('load', function () {
     }
 
     var l = 10;
-    var p = 0;
+    var p = 1;
     var request = new XMLHttpRequest();
     request.open('GET', 'http://192.168.10.192:3500/product?l=' + l + '&' + 'p=' + p);
     request.onload = function () {
 
         if (request.status >= 200 && request.status < 400) {
-            console.log(JSON.parse(request.response));
             function montarLista(lista) {
                 var table = document.getElementById('product-data');
                 table.innerHTML = '';
@@ -33,35 +32,33 @@ window.addEventListener('load', function () {
                     newTd4.appendChild(newIconEdit).classList.add('material-icons', 'list-icons', 'edit');
                     newTr.appendChild(newTd5);
                     newTd5.appendChild(newIconBlock).classList.add('material-icons', 'list-icons', 'flag');
+                    newTr.setAttribute('data-id', lista[i].id);
 
-                    getClass('.product-photo')[i].setAttribute('src', lista[i].imagem );
+                    getClass('.product-photo')[i].setAttribute('src', lista[i].imagem);
                     getClass('.edit')[i].setAttribute('tabindex', '1');
                     getClass('.flag')[i].setAttribute('tabindex', '1');
-
                     getClass('.edit')[i].innerText = 'create';
                     getClass('.flag')[i].innerText = 'flag';
                     getClass('.product-name')[i].innerText = lista[i].nome;
                     getClass('.product-amount')[i].innerText = lista[i].quantidade;
 
-                    document.getElementsByClassName('flag')[i].onclick = function () {
+                    getClass('.flag')[i].onclick = function () {
                         var product = document.getElementsByClassName('product');
                         this.parentElement.parentElement.classList.toggle('desativado');
                         this.parentElement.parentElement.setAttribute('disabled', 'disabled');
-                    }
+                    };
                 }
             }
+
             montarLista(JSON.parse(request.response).result);
-
-
         }
         else {
             alert('erro')
         }
     };
 
-
-
-
-
     request.send();
 });
+
+
+

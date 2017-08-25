@@ -80,17 +80,17 @@
 
 
 
-    // PESQUISA
+// PESQUISA
 
-    // var pesquisa = document.getElementsByClassName('pesquisaProd')[0];
-    // pesquisa.onkeydown = function () {
-    //     setTimeout(function () {
-    //         var listaFiltrada = listaProduto.filter(function (item) {
-    //             return (item.nome.toLowerCase().indexOf(pesquisa.value.toLowerCase()) !== -1);
-    //         });
-    //         montarLista(listaFiltrada)
-    //     })
-    // };
+// var pesquisa = document.getElementsByClassName('pesquisaProd')[0];
+// pesquisa.onkeydown = function () {
+//     setTimeout(function () {
+//         var listaFiltrada = listaProduto.filter(function (item) {
+//             return (item.nome.toLowerCase().indexOf(pesquisa.value.toLowerCase()) !== -1);
+//         });
+//         montarLista(listaFiltrada)
+//     })
+// };
 
 
 
@@ -103,6 +103,5 @@
 
 
 // });
-
 
 
