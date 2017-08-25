@@ -88,7 +88,7 @@ window.addEventListener('load', function classes() {
                 getClass('.card-position')[0].classList.remove('open');
             })
     };
-    getClass('.cancel-button')[0].onclick = function () {
+    getClass('.register-button')[0].onclick = function () {
         getClass('.input-text')[0].classList.remove('label-blur');
         getClass('.input-text')[1].classList.remove('label-blur');
         getClass('.input-text')[2].classList.remove('label-blur');
@@ -96,14 +96,14 @@ window.addEventListener('load', function classes() {
         getClass('.product-register')[0].classList.remove('open');
         getClass('.product-register')[0].reset();
         getClass('.card-position')[0].classList.add('open');
-        getId('register-button').classList.add('register-button');
-        getId('register-button').classList.remove('cancel-button');
+        getId('register-button').classList.remove('register-button');
+        getId('register-button').classList.add('register-button-disabled');
         getId('register-button').setAttribute('disabled', 'disabled');
         setTimeout(function() {
             getClass('.product-register')[0].classList.remove('display-pattern')
         }, 280)
     };
-    getClass('.cancel-button')[1].onclick = function () {
+    getClass('.register-button')[1].onclick = function () {
         getClass('.input-text')[0].classList.remove('label-blur');
         getClass('.input-text')[1].classList.remove('label-blur');
         getClass('.input-text')[2].classList.remove('label-blur');
@@ -146,24 +146,24 @@ window.addEventListener('load', function classes() {
         inputBox[i].onkeydown = function () {
             setTimeout(function () {
                 if (inputBox[0].value.length > 0 && inputBox[1].value.length > 0 && inputBox[2].value.length > 0) {
-                    getId('register-button').classList.add('cancel-button');
-                    getId('register-button').classList.remove('register-button');
+                    getId('register-button').classList.add('register-button');
+                    getId('register-button').classList.remove('register-button-disabled');
                     getId('register-button').removeAttribute('disabled')
 
                 } else {
-                    getId('register-button').classList.add('register-button');
-                    getId('register-button').classList.remove('cancel-button');
+                    getId('register-button').classList.add('register-button-disabled');
+                    getId('register-button').classList.remove('register-button');
                     getId('register-button').setAttribute('disabled', 'disabled');
                 }
 
                 if (inputBox[3].value.length > 0 && inputBox[4].value.length > 0 && inputBox[5].value.length > 0) {
-                    getId('edit-button').classList.add('cancel-button');
-                    getId('edit-button').classList.remove('register-button');
+                    getId('edit-button').classList.add('register-button');
+                    getId('edit-button').classList.remove('register-button-disabled');
                     getId('edit-button').removeAttribute('disabled')
 
                 } else {
-                    getId('edit-button').classList.add('register-button');
-                    getId('edit-button').classList.remove('cancel-button');
+                    getId('edit-button').classList.add('register-button-disabled');
+                    getId('edit-button').classList.remove('register-button');
                     getId('edit-button').setAttribute('disabled', 'disabled');
                 }
             });

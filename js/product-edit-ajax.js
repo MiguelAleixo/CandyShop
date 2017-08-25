@@ -22,8 +22,8 @@ window.addEventListener('load', function () {
                 if (request.status >= 200 && request.status < 400) {
                     getClass('.product-register')[1].classList.add('display-pattern');
                     setTimeout(function () {
-                        getId('edit-button').classList.remove('register-button');
-                        getId('edit-button').classList.add('cancel-button');
+                        getId('edit-button').classList.add('register-button');
+                        getId('edit-button').classList.remove('register-button-disabled');
                         getId('edit-button').removeAttribute('disabled');
                         getClass('.product-register')[1].classList.add('open');
                         getClass('.card-position')[0].classList.remove('open');
