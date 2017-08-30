@@ -27,6 +27,7 @@ window.addEventListener('load', function () {
                         getClass('.button')[1].setAttribute('disabled', 'disabled');
                         getClass('.button')[1].classList.add('button-design');
                         getClass('.button')[1].classList.remove('button-design-active');
+                        getClass('#password')[0].classList.remove('bar-pink');
                         break;
                 }
             }

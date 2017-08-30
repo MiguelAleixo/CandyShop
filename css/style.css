@@ -144,6 +144,9 @@ body{
 .input-box.bar-red{
     border-color: rgba(255,0,0,0.87);
 }
+.input-box.bar-pink{
+    border-color: #e91e63;
+}
 .error-text{
     display: none;
     margin-top: 5px;

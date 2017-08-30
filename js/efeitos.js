@@ -28,7 +28,9 @@ window.addEventListener('load', function () {
         if (regex.test(email.value)) {
             getClass('.input-name')[0].classList.remove('red', 'pink');
             getClass('#email')[0].classList.remove('bar-red');
+            getClass('#email')[0].classList.remove('bar-pink');
             getClass('.button')[0].removeAttribute('disabled');
+            getClass('.error-text')[0].classList.remove('alert');
         }
         else if (regex.test(!email.value)) {
             getClass('button')[0].setAttribute('disabled', 'disabled');
@@ -44,6 +46,7 @@ window.addEventListener('load', function () {
     email.onkeydown = function () {
         setTimeout(function () {
             if (regex.test(email.value)) {
+                getClass('#email')[0].classList.add('bar-pink');
                 getClass('.input-name')[0].classList.add('pink');
                 getClass('.input-name')[0].classList.remove('red');
                 getClass('.error-text')[0].classList.remove('alert');
@@ -84,12 +87,14 @@ window.addEventListener('load', function () {
             getClass('input-name')[1].classList.add('red');
             getClass('button')[1].setAttribute('disabled', 'disabled');
             password.classList.add('bar-red');
+            password.classList.remove('bar-pink')
         }
         else if (password.value.length >= 6) {
             getClass('.input-name')[1].classList.add('grey');
             getClass('.input-name')[1].classList.remove('red', 'pink');
             getClass('.button')[1].removeAttribute('disabled');
             password.classList.remove('bar-red');
+            password.classList.remove('bar-pink');
 
         }
         else if (password.value.length === 0) {
@@ -100,6 +105,7 @@ window.addEventListener('load', function () {
     password.onkeydown = function () {
         setTimeout(function () {
             if (password.value.length >= 6) {
+                getClass('#password')[0].classList.add('bar-pink');
                 getClass('.input-name')[1].classList.add('pink');
                 getClass('.input-name')[1].classList.remove('red');
                 getClass('.error-text')[1].classList.remove('alert');
@@ -141,6 +147,7 @@ window.addEventListener('load', function () {
             getClass('.input-name')[2].classList.remove('pink');
             getClass('.button')[2].removeAttribute('disabled');
             forgot.classList.remove('bar-red');
+            forgot.classList.remove('bar-pink');
         }
         else if (regex.test(!forgot.value)) {
             getClass('.button')[2].setAttribute('disabled', 'disabled');
@@ -161,6 +168,7 @@ window.addEventListener('load', function () {
                 getClass('.button')[2].classList.add('button-design-active');
                 getClass('.button')[2].classList.remove('button-design');
                 getClass('.button')[2].removeAttribute('disabled');
+                forgot.classList.add('bar-pink');
             }
             else {
                 getClass('.input-name')[2].classList.remove('pink');
@@ -169,6 +177,8 @@ window.addEventListener('load', function () {
                 getClass('.button')[2].classList.add('button-design');
                 getClass('.button')[2].classList.remove('button-design-active');
                 getClass('.button')[2].setAttribute('disabled', 'disabled');
+                forgot.classList.add('bar-red');
+                forgot.classList.remove('bar-pink');
             }
         });
     };

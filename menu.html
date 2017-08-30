@@ -59,9 +59,11 @@
         </table>
         <div class="page">
             <div class="page-text">
-                <label> 1-10 </label> <label>de</label> <label> 30 </label>
+                <label class="pagination"> 1-10 </label>
+                <label class="pagination">de</label>
+                <label class="pagination"> 30 </label>
             </div>
-            <i  tabindex="1" class="material-icons arrow-page left">keyboard_arrow_left</i><i tabindex="1" class="material-icons arrow-page right">keyboard_arrow_right</i>
+            <i tabindex="1" class="material-icons arrow-page left">keyboard_arrow_left</i><i tabindex="1" class="material-icons arrow-page right">keyboard_arrow_right</i>
         </div>
     </section>
     <button class="button-add"><i class="material-icons add">add</i></button>
@@ -69,16 +71,20 @@
 <div class="register-position">
     <form class="product-register" onsubmit="return false">
         <label class="label-register"> Cadastro de produtos</label>
-        <img class="product-insert-photo" src="./image/dolim.jpg">
+        <img class="product-insert-photo" src="./image/ICONE-CS.jpg">
         <div>
         <i class="material-icons photo-add" tabindex="1">photo_camera</i>
         </div>
-        <table>
-            <tr class="photo-option hidden">
-                <td class="option"><i class="material-icons photo-config">add_a_photo</i>Adicionar foto</td>
-                <td class="option"><i class="material-icons photo-config">delete</i>Remover foto</td>
-            </tr>
-        </table>
+        <div class="photo-option hidden">
+            <div class="option">
+                <div class="photo-icon"><i class="material-icons photo-config">add_a_photo</i></div>
+                <div class="text-photo">Adicionar foto</div>
+            </div>
+            <div class="option">
+                <div class="photo-icon"><i class="material-icons photo-config">delete</i></div>
+                <div class="text-photo">Remover foto</div>
+            </div>
+        </div>
         <input type="file" class="file-add" accept="image/*">
             <div class="input-design">
             <input autocomplete="off" type="text" class="input-box" id="name-edit">
@@ -89,6 +95,7 @@
             <input autocomplete="off" type="text" class="input-box" id="price-edit">
             <label class="input-text" id="price-label" for="price-edit">Preço*</label>
         </div>
+            <div class="input-design width-spacing"></div>
         <div class="input-design width-input">
             <input autocomplete="off" type="number" class="input-box" id="amount-edit">
             <label class="input-text" id="amount-label" for="amount-edit">Quantidade*</label>
@@ -101,23 +108,26 @@
         <div class="button-position">
         <button class="register-button" id="cancel-button"> CANCELAR </button>
             <button class="register-button-disabled" id="register-button" disabled> CONFIRMAR </button>
-
         </div>
     </form>
 </div>
 <div class="register-position">
     <form class="product-register" onsubmit="return false">
         <label class="label-register"> Edição de produtos</label>
-        <img id="edit-photo" class="product-insert-photo" src="./image/dolim.jpg">
+        <img id="edit-photo" class="product-insert-photo" src="./image/ICONE-CS.jpg">
         <div>
             <i class="material-icons photo-add" tabindex="1">photo_camera</i>
         </div>
-        <table>
-            <tr class="photo-option hidden">
-                <td class="option"><i class="material-icons photo-config">add_a_photo</i>Adicionar foto</td>
-                <td class="option"><i class="material-icons photo-config">delete</i>Remover foto</td>
-            </tr>
-        </table>
+        <div class="photo-option hidden">
+            <div class="option">
+                <div class="photo-icon"><i class="material-icons photo-config">add_a_photo</i></div>
+                <div class="text-photo">Adicionar foto</div>
+            </div>
+            <div class="option">
+                <div class="photo-icon"><i class="material-icons photo-config">delete</i></div>
+                <div class="text-photo">Remover foto</div>
+            </div>
+        </div>
         <input type="file" class="file-add" accept="image/*">
         <div class="input-design">
             <input autocomplete="off" type="text" class="input-box" id="name">
@@ -128,6 +138,7 @@
                 <input autocomplete="off" type="text" class="input-box" id="price">
                 <label class="input-text" id="price-label-edit" for="price">Preço*</label>
             </div>
+            <div class="input-design width-spacing"></div>
             <div class="input-design width-input">
                 <input autocomplete="off" type="number" class="input-box" id="amount">
                 <label class="input-text" id="amount-label-edit" for="amount">Quantidade*</label>

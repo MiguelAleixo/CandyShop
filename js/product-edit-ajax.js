@@ -30,7 +30,12 @@ window.addEventListener('load', function () {
                         getId('name').value = JSON.parse(request.response).result[0].nome;
                         getId('amount').value = JSON.parse(request.response).result[0].quantidade;
                         getId('price').value = JSON.parse(request.response).result[0].preco;
-                        getId('edit-photo').setAttribute('src', JSON.parse(request.response).result[0].imagem);
+
+                        if(JSON.parse(request.response).result[0].imagem){
+                            getId('edit-photo').setAttribute('src', JSON.parse(request.response).result[0].imagem)
+                        }else{
+                            getId('edit-photo').setAttribute('src', './image/ICONE-CS.jpg')
+                        }
                     }, 50);
                     for (var i = 3; i < 6; i++) {
                         getClass('.input-box')[i].classList.add('input-blur');
@@ -43,5 +48,5 @@ window.addEventListener('load', function () {
             };
             request.send();
         }
-    })
+    }, 100)
 });

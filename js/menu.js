@@ -92,6 +92,7 @@ window.addEventListener('load', function classes() {
         getClass('.input-text')[0].classList.remove('label-blur');
         getClass('.input-text')[1].classList.remove('label-blur');
         getClass('.input-text')[2].classList.remove('label-blur');
+        getClass('.product-insert-photo')[0].src = '';
         getClass('.input-text-area')[0].classList.remove('text-area-blur');
         getClass('.product-register')[0].classList.remove('open');
         getClass('.product-register')[0].reset();
@@ -107,6 +108,7 @@ window.addEventListener('load', function classes() {
         getClass('.input-text')[0].classList.remove('label-blur');
         getClass('.input-text')[1].classList.remove('label-blur');
         getClass('.input-text')[2].classList.remove('label-blur');
+        getClass('.product-insert-photo')[1].src = '';
         getClass('.input-text-area')[1].classList.remove('text-area-blur');
         getClass('.product-register')[1].classList.remove('open');
         getClass('.product-register')[1].reset();
@@ -115,17 +117,68 @@ window.addEventListener('load', function classes() {
             getClass('.product-register')[1].classList.remove('display-pattern')
         }, 280)
     };
-    getClass('.photo-add')[0].onfocus = function () {
-        getClass('.photo-option')[0].classList.remove('hidden');
+
+    // ADICIONAR OU REMOVER IMAGENS
+
+    getClass('.photo-add')[0].onclick = function () {
+        getClass('.photo-option')[0].classList.add('display-pattern');
+        setTimeout(function() {
+            getClass('.photo-option')[0].classList.remove('hidden');
+        })
     };
-    getClass('.photo-add')[1].onfocus = function () {
-        getClass('.photo-option')[1].classList.remove('hidden');
+    getClass('.photo-add')[1].onclick = function () {
+        getClass('.photo-option')[1].classList.add('display-pattern');
+        setTimeout(function() {
+            getClass('.photo-option')[1].classList.remove('hidden');
+        })
     };
     getClass('.photo-add')[0].onblur = function () {
         getClass('.photo-option')[0].classList.add('hidden');
+        setTimeout(function() {
+            getClass('.photo-option')[0].classList.remove('display-pattern')
+        }, 280)
     };
     getClass('.photo-add')[1].onblur = function () {
         getClass('.photo-option')[1].classList.add('hidden');
+        setTimeout(function() {
+            getClass('.photo-option')[1].classList.remove('display-pattern')
+        }, 280)
+    };
+    getClass('.option')[0].onclick = function(){
+      getClass('.file-add')[0].click();
+    };
+    getClass('.option')[2].onclick = function(){
+        getClass('.file-add')[1].click();
+    };
+
+    document.querySelectorAll('input')[1].onchange = function previewFile() {
+        var img = document.getElementsByClassName('product-insert-photo')[0];
+        var choose  = document.querySelectorAll('input')[1].files[0];
+        var read  = new FileReader();
+        read.onloadend = function () {
+            img.src = read.result;
+        };
+        if (choose) {
+            read.readAsDataURL(choose);
+            console.log();
+        } else {
+            img.src = "";
+        }
+    };
+
+    document.querySelectorAll('input')[5].onchange = function previewFile() {
+        var img = document.getElementsByClassName('product-insert-photo')[1];
+        var choose  =document.querySelectorAll('input')[5].files[0];
+        var read  = new FileReader();
+        read.onloadend = function () {
+            img.src = read.result;
+        };
+        if (choose) {
+            read.readAsDataURL(choose);
+            console.log();
+        } else {
+            img.src = "";
+        }
     };
 
 
