@@ -20,6 +20,7 @@ window.addEventListener('load', function () {
             request.open('GET', 'http://192.168.10.192:3500/product?id=' + id);
             request.onload = function () {
                 if (request.status >= 200 && request.status < 400) {
+                    console.log(JSON.parse(request.response));
                     getClass('.product-register')[1].classList.add('display-pattern');
                     setTimeout(function () {
                         getId('edit-button').classList.add('register-button');
@@ -27,14 +28,18 @@ window.addEventListener('load', function () {
                         getId('edit-button').removeAttribute('disabled');
                         getClass('.product-register')[1].classList.add('open');
                         getClass('.card-position')[0].classList.remove('open');
-                        getId('name').value = JSON.parse(request.response).result[0].nome;
-                        getId('amount').value = JSON.parse(request.response).result[0].quantidade;
-                        getId('price').value = JSON.parse(request.response).result[0].preco;
+                        getId('name-edit').value = JSON.parse(request.response).result[0].nome;
+                        getId('amount-edit').value = JSON.parse(request.response).result[0].quantidade;
+                        getId('price-edit').value = JSON.parse(request.response).result[0].preco;
+                        getId('observation-edit').value = JSON.parse(request.response).result[0].descricaoProduto;
+                        if(getId('observation-edit').value.length > 0){
+                            getClass('.input-text-area')[1].classList.add('text-area-blur');
+                        }
 
                         if(JSON.parse(request.response).result[0].imagem){
                             getId('edit-photo').setAttribute('src', JSON.parse(request.response).result[0].imagem)
                         }else{
-                            getId('edit-photo').setAttribute('src', './image/ICONE-CS.jpg')
+                            getId('edit-photo').setAttribute('src', './image/foto-default.png')
                         }
                     }, 50);
                     for (var i = 3; i < 6; i++) {

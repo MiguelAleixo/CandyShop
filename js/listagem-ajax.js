@@ -2,6 +2,13 @@ window.addEventListener('load', function () {
     function getClass(classe) {
         return document.querySelectorAll(classe);
     }
+    function getId(id) {
+        return document.getElementById(id);
+    }
+    function request(l,p){
+         return request = new XMLHttpRequest();
+         return request.open('GET', 'http://192.168.10.192:3500/product?l=' + l + '&' + 'p=' + p);
+    }
 
     var l = 10;
     var p = 1;
@@ -36,7 +43,7 @@ window.addEventListener('load', function () {
                     if (lista[i].imagem) {
                         getClass('.product-photo')[i].setAttribute('src', lista[i].imagem);
                     } else {
-                        getClass('.product-photo')[i].setAttribute('src', './image/ICONE-CS.jpg');
+                        getClass('.product-photo')[i].setAttribute('src', './image/foto-default.png');
                     }
                     getClass('.edit')[i].setAttribute('tabindex', '1');
                     getClass('.flag')[i].setAttribute('tabindex', '1');
@@ -54,15 +61,6 @@ window.addEventListener('load', function () {
             }
             montarLista(JSON.parse(request.response).result);
 
-            var pesquisa = document.getElementsByClassName('product-search')[0];
-            pesquisa.onkeydown = function () {
-                setTimeout(function () {
-                    var listaFiltrada = JSON.parse(request.response).result.filter(function (item) {
-                        return (item.nome.toLowerCase().indexOf(pesquisa.value.toLowerCase()) !== -1);
-                    });
-                    montarLista(listaFiltrada)
-                })
-            };
 
         }
     };

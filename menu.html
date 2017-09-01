@@ -6,6 +6,7 @@
     <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/product-edit-ajax.js"></script>
     <script type="text/javascript" src="js/listagem-ajax.js"></script>
+    <script type="text/javascript" src="js/product-register.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
@@ -45,7 +46,7 @@
 </div>
 
 <div class="card-position">
-    <section class="product-card">
+    <section class="product-card display-pattern">
         <div class="product-text"> Produtos
             <i class="material-icons filter" tabindex='1'>filter_list</i></div>
         <div class="search">
@@ -71,7 +72,9 @@
 <div class="register-position">
     <form class="product-register" onsubmit="return false">
         <label class="label-register"> Cadastro de produtos</label>
-        <img class="product-insert-photo" src="./image/ICONE-CS.jpg">
+        <div class="overflow-photo">
+        <img class="product-insert-photo" id="image" src="./image/foto-default.png">
+        </div>
         <div>
         <i class="material-icons photo-add" tabindex="1">photo_camera</i>
         </div>
@@ -87,23 +90,23 @@
         </div>
         <input type="file" class="file-add" accept="image/*">
             <div class="input-design">
-            <input autocomplete="off" type="text" class="input-box" id="name-edit">
-            <label class="input-text" id="name-label" for="name-edit">Nome*</label>
+            <input autocomplete="off" type="text" class="input-box" id="name">
+            <label class="input-text" id="name-label" for="name">Nome*</label>
         </div>
         <div class="input-position">
         <div class="input-design width-input">
-            <input autocomplete="off" type="text" class="input-box" id="price-edit">
-            <label class="input-text" id="price-label" for="price-edit">Preço*</label>
+            <input autocomplete="off" type="number" step="any" class="input-box" id="price">
+            <label class="input-text" id="price-label" for="price">Preço*</label>
         </div>
             <div class="input-design width-spacing"></div>
         <div class="input-design width-input">
-            <input autocomplete="off" type="number" class="input-box" id="amount-edit">
-            <label class="input-text" id="amount-label" for="amount-edit">Quantidade*</label>
+            <input autocomplete="off" type="number" class="input-box" id="amount">
+            <label class="input-text" id="amount-label" for="amount">Quantidade*</label>
         </div>
         </div>
         <div class="input-design">
-            <textarea  class="text-area" id="description"></textarea>
-            <label class="input-text-area" id="description-label" for="description">Descrição</label>
+            <textarea  class="text-area" id="observation"></textarea>
+            <label class="input-text-area" id="observation-label" for="observation">Observação</label>
         </div>
         <div class="button-position">
         <button class="register-button" id="cancel-button"> CANCELAR </button>
@@ -114,7 +117,9 @@
 <div class="register-position">
     <form class="product-register" onsubmit="return false">
         <label class="label-register"> Edição de produtos</label>
-        <img id="edit-photo" class="product-insert-photo" src="./image/ICONE-CS.jpg">
+        <div class="overflow-photo">
+        <img id="edit-photo" class="product-insert-photo" src="./image/foto-default.png">
+        </div>
         <div>
             <i class="material-icons photo-add" tabindex="1">photo_camera</i>
         </div>
@@ -130,23 +135,23 @@
         </div>
         <input type="file" class="file-add" accept="image/*">
         <div class="input-design">
-            <input autocomplete="off" type="text" class="input-box" id="name">
-            <label class="input-text" id="name-label-edit" for="name">Nome*</label>
+            <input autocomplete="off" type="text" class="input-box" id="name-edit">
+            <label class="input-text" id="name-label-edit" for="name-edit">Nome*</label>
         </div>
         <div class="input-position">
             <div class="input-design width-input">
-                <input autocomplete="off" type="text" class="input-box" id="price">
-                <label class="input-text" id="price-label-edit" for="price">Preço*</label>
+                <input autocomplete="off" type="number" step="any" class="input-box" id="price-edit">
+                <label class="input-text" id="price-label-edit" for="price-edit">Preço*</label>
             </div>
             <div class="input-design width-spacing"></div>
             <div class="input-design width-input">
-                <input autocomplete="off" type="number" class="input-box" id="amount">
-                <label class="input-text" id="amount-label-edit" for="amount">Quantidade*</label>
+                <input autocomplete="off" type="number" class="input-box" id="amount-edit">
+                <label class="input-text" id="amount-label-edit" for="amount-edit">Quantidade*</label>
             </div>
         </div>
         <div class="input-design">
-            <textarea  class="text-area" id="description-edit"></textarea>
-            <label class="input-text-area" id="description-label-edit" for="description">Descrição</label>
+            <textarea  class="text-area" id="observation-edit"></textarea>
+            <label class="input-text-area" id="observation-label-edit" for="observation-edit" > Observação </label>
         </div>
         <div class="button-position">
             <button class="register-button" id="cancel-button-edit"> CANCELAR </button>

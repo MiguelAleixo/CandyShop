@@ -85,14 +85,16 @@ window.addEventListener('load', function classes() {
             getClass('.product-register')[0].classList.add('display-pattern');
             setTimeout(function () {
                 getClass('.product-register')[0].classList.add('open');
-                getClass('.card-position')[0].classList.remove('open');
+                getClass('.card-position')[0].classList.remove('open', 'display-pattern');
+                ;
             })
     };
     getClass('.register-button')[0].onclick = function () {
+        getClass('.card-position')[0].classList.add('display-pattern');
+        setTimeout(function() {
         getClass('.input-text')[0].classList.remove('label-blur');
         getClass('.input-text')[1].classList.remove('label-blur');
         getClass('.input-text')[2].classList.remove('label-blur');
-        getClass('.product-insert-photo')[0].src = '';
         getClass('.input-text-area')[0].classList.remove('text-area-blur');
         getClass('.product-register')[0].classList.remove('open');
         getClass('.product-register')[0].reset();
@@ -100,21 +102,23 @@ window.addEventListener('load', function classes() {
         getId('register-button').classList.remove('register-button');
         getId('register-button').classList.add('register-button-disabled');
         getId('register-button').setAttribute('disabled', 'disabled');
+        });
         setTimeout(function() {
-            getClass('.product-register')[0].classList.remove('display-pattern')
+            getClass('.product-register')[0].classList.remove('display-pattern');
+            getClass('.product-insert-photo')[0].src = './image/foto-default.png';
         }, 280)
     };
     getClass('.register-button')[1].onclick = function () {
         getClass('.input-text')[0].classList.remove('label-blur');
         getClass('.input-text')[1].classList.remove('label-blur');
         getClass('.input-text')[2].classList.remove('label-blur');
-        getClass('.product-insert-photo')[1].src = '';
         getClass('.input-text-area')[1].classList.remove('text-area-blur');
         getClass('.product-register')[1].classList.remove('open');
         getClass('.product-register')[1].reset();
         getClass('.card-position')[0].classList.add('open');
         setTimeout(function() {
-            getClass('.product-register')[1].classList.remove('display-pattern')
+            getClass('.product-register')[1].classList.remove('display-pattern');
+            getClass('.product-insert-photo')[1].src = './image/ICONE-CS.jpg';
         }, 280)
     };
 
@@ -150,6 +154,14 @@ window.addEventListener('load', function classes() {
     getClass('.option')[2].onclick = function(){
         getClass('.file-add')[1].click();
     };
+    getClass('.option')[1].onclick = function(){
+        // getClass('.file-add')[0].click();
+        alert('oi')
+    };
+    getClass('.option')[3].onclick = function(){
+        // getClass('.file-add')[1].click();
+    };
+
 
     document.querySelectorAll('input')[1].onchange = function previewFile() {
         var img = document.getElementsByClassName('product-insert-photo')[0];

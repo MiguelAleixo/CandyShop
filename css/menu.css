@@ -18,7 +18,7 @@ body {
 }
 
 .bar-extend {
-    height: 116px;
+    height: 162px;
 }
 
 .z-index {
@@ -33,7 +33,7 @@ body {
     background-color: #fff;
     overflow-x: hidden;
     transition: 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow:  0 12px 17px 2px rgba(0,0,0,0.14), 0 5px 22px 4px rgba(0,0,0,0.12), 0 7px 8px 0 rgba(0,0,0,0.2);
 }
 
 .nav.close {
@@ -203,13 +203,14 @@ h1 {
 }
 
 .product-card {
+    display: none;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     border-radius: 2px;
     padding-bottom: 48px;
     background-color: #fff;
-    top: 4px;
+    top: 45px;
     width: 100%;
     max-width: 700px;
     min-height: 170px;
@@ -219,6 +220,7 @@ h1 {
 @media screen and (max-width: 700px) {
     .product-card {
         width: 100%;
+        top: 0;
     }
 
 
@@ -250,7 +252,7 @@ h1 {
     height: 56px;
     border-radius: 50%;
     border: none;
-    top: 30px;
+    top: 75px;
     right: -84px;
     background-color: #e91e63;
     position: absolute;
@@ -275,9 +277,9 @@ h1 {
     }
     .button-add {
         position: relative;
-        top: 14px;
-        left: 82%;
-        margin: 10px;
+        top: 4px;
+        left: 85%;
+        margin: 4px 0;
     }
     .bar {
         height: 58px;
@@ -577,16 +579,24 @@ h1 {
 }
 
 .product-insert-photo {
-    margin: 10px auto 0 auto;
-    display: block;
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+}
+.overflow-photo{
     width: 100px;
     height: 100px;
+    overflow: hidden;
     border-radius: 50%;
-    background-color: #000;
+    display: flex;
+    margin: 6px auto;
+    position: relative;
 }
 
 .register-button {
-    margin-left: 14px;
+    margin-left: 12px;
     background-color: transparent;
     color: #e91e63;
     padding: 0 8px;
@@ -644,14 +654,19 @@ h1 {
 }
 
 .photo-add {
+    transition: 280ms cubic-bezier(0.4, 0.0, 0.2, 1);
     border-radius: 50%;
-    padding: 4px;
+    padding: 7px 6px 6px 7px;
     background-color: #8d6e63;
-    top: 125px;
-    left: 55%;
-    color: rgba(0, 0, 0, 0.46);
+    top: 107px;
+    left: 53%;
+    color: #fff;
     outline: none;
     position: absolute;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.12), 0 1px 3px 0 rgba(0,0,0,.20);
+}
+.photo-add:active{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .file-add {
@@ -666,8 +681,8 @@ h1 {
     opacity: 1;
     overflow: hidden;
     position: absolute;
-    left: 58%;
-    top: 140px;
+    left: 57%;
+    top: 122px;
     /*padding: 8px;*/
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
     background-color: #fff;
@@ -681,7 +696,7 @@ h1 {
     display: flex;
 }
 .option:hover{
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
 }
 .text-photo{
     padding-right: 8px;

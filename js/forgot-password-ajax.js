@@ -11,8 +11,8 @@ window.addEventListener('load', function () {
             var answer = JSON.parse(request.responseText);
 
             if (request.status >= 200 && request.status < 400) {
-                // getClass('.sent-success')[0].classList.add('sent');
-                alert('deu')
+                getClass('.sent-success')[0].classList.add('sent');
+
             } else {
                 switch (answer.code){
                     case 1:
