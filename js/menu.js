@@ -2,7 +2,6 @@ window.addEventListener('load', function classes() {
     function getClass(classe) {
         return document.querySelectorAll(classe);
     }
-
     function getId(id) {
         return document.getElementById(id);
     }
@@ -24,7 +23,6 @@ window.addEventListener('load', function classes() {
             getClass('.nav-action')[i].classList.remove('show');
             getClass('.arrow-list')[i].classList.remove('down');
             getClass('.action')[i].classList.add('close');
-
         }
     };
 
@@ -60,7 +58,7 @@ window.addEventListener('load', function classes() {
             setTimeout(function () {
                 getClass('.card-position')[0].classList.add('open');
                 getClass('.bar')[0].classList.add('bar-extend');
-            })
+            }, 100)
 
     };
 
@@ -73,6 +71,10 @@ window.addEventListener('load', function classes() {
         getClass('.search')[0].style.display = 'block';
     };
     getClass('.exit')[0].onclick = function () {
+        getClass('.search')[0].reset();
+        listing();
+        callProduct();
+        productDisabled();
         getClass('.product-text')[0].style.display = 'block';
         getClass('.search')[0].style.display = 'none';
     };
@@ -82,112 +84,149 @@ window.addEventListener('load', function classes() {
 
 
     getClass('.button-add')[0].onclick = function () {
-            getClass('.product-register')[0].classList.add('display-pattern');
-            setTimeout(function () {
-                getClass('.product-register')[0].classList.add('open');
-                getClass('.card-position')[0].classList.remove('open', 'display-pattern');
-                ;
-            })
+        getClass('.product-register')[0].classList.add('display-pattern');
+        setTimeout(function () {
+            getClass('.product-register')[0].classList.add('open');
+            getClass('.card-position')[0].classList.remove('open');
+        }, 100);
+        setTimeout(function () {
+            getClass('.card-position')[0].classList.remove('display-pattern');
+        }, 280)
     };
     getClass('.register-button')[0].onclick = function () {
+        listing();
+        callProduct();
+        productDisabled();
         getClass('.card-position')[0].classList.add('display-pattern');
-        setTimeout(function() {
-        getClass('.input-text')[0].classList.remove('label-blur');
-        getClass('.input-text')[1].classList.remove('label-blur');
-        getClass('.input-text')[2].classList.remove('label-blur');
-        getClass('.input-text-area')[0].classList.remove('text-area-blur');
-        getClass('.product-register')[0].classList.remove('open');
-        getClass('.product-register')[0].reset();
-        getClass('.card-position')[0].classList.add('open');
-        getId('register-button').classList.remove('register-button');
-        getId('register-button').classList.add('register-button-disabled');
-        getId('register-button').setAttribute('disabled', 'disabled');
-        });
-        setTimeout(function() {
+        getClass('.search')[0].reset();
+        setTimeout(function () {
+            getClass('.product-register')[0].classList.remove('open');
+            getClass('.card-position')[0].classList.add('open');
+            getId('register-button').classList.remove('register-button');
+            getId('register-button').classList.add('register-button-disabled');
+            getId('register-button').setAttribute('disabled', 'disabled');
+        }, 100);
+        setTimeout(function () {
+            getClass('.input-text')[0].classList.remove('label-blur');
+            getClass('.input-text')[1].classList.remove('label-blur');
+            getClass('.input-text')[2].classList.remove('label-blur');
+            getClass('.input-text-area')[0].classList.remove('text-area-blur');
+            getClass('.product-register')[0].reset();
             getClass('.product-register')[0].classList.remove('display-pattern');
-            getClass('.product-insert-photo')[0].src = './image/foto-default.png';
+            getClass('.product-insert-photo')[0].src = null;
         }, 280)
     };
     getClass('.register-button')[1].onclick = function () {
-        getClass('.input-text')[0].classList.remove('label-blur');
-        getClass('.input-text')[1].classList.remove('label-blur');
-        getClass('.input-text')[2].classList.remove('label-blur');
-        getClass('.input-text-area')[1].classList.remove('text-area-blur');
-        getClass('.product-register')[1].classList.remove('open');
-        getClass('.product-register')[1].reset();
-        getClass('.card-position')[0].classList.add('open');
-        setTimeout(function() {
+        listing();
+        callProduct();
+        productDisabled();
+        getClass('.card-position')[0].classList.add('display-pattern');
+        setTimeout(function () {
+            getClass('.input-text')[0].classList.remove('label-blur');
+            getClass('.input-text')[1].classList.remove('label-blur');
+            getClass('.input-text')[2].classList.remove('label-blur');
+            getClass('.input-text-area')[1].classList.remove('text-area-blur');
+            getClass('.product-register')[1].classList.remove('open');
+            getClass('.product-register')[1].reset();
+            getClass('.search')[0].reset();
+            getClass('.card-position')[0].classList.add('open');
+        }, 100);
+        setTimeout(function () {
             getClass('.product-register')[1].classList.remove('display-pattern');
-            getClass('.product-insert-photo')[1].src = './image/ICONE-CS.jpg';
+            getClass('.product-insert-photo')[1].src = '';
         }, 280)
     };
 
     // ADICIONAR OU REMOVER IMAGENS
 
+    getClass('.button-photo')[0].onclick = function () {
+        getClass('.photo-option')[0].classList.add('display-pattern');
+        setTimeout(function () {
+            getClass('.photo-option')[0].classList.remove('hidden');
+        })
+    };
+    getClass('.button-photo')[1].onclick = function () {
+        getClass('.photo-option')[1].classList.add('display-pattern');
+        setTimeout(function () {
+            getClass('.photo-option')[1].classList.remove('hidden');
+        })
+    };
+    getClass('.button-photo')[0].onblur = function () {
+        getClass('.photo-option')[0].classList.add('hidden');
+        setTimeout(function () {
+            getClass('.photo-option')[0].classList.remove('display-pattern')
+        }, 280)
+    };
+    getClass('.button-photo')[1].onblur = function () {
+        getClass('.photo-option')[1].classList.add('hidden');
+        setTimeout(function () {
+            getClass('.photo-option')[1].classList.remove('display-pattern')
+        }, 280)
+    };
+
     getClass('.photo-add')[0].onclick = function () {
         getClass('.photo-option')[0].classList.add('display-pattern');
-        setTimeout(function() {
+        setTimeout(function () {
             getClass('.photo-option')[0].classList.remove('hidden');
         })
     };
     getClass('.photo-add')[1].onclick = function () {
         getClass('.photo-option')[1].classList.add('display-pattern');
-        setTimeout(function() {
+        setTimeout(function () {
             getClass('.photo-option')[1].classList.remove('hidden');
         })
     };
     getClass('.photo-add')[0].onblur = function () {
         getClass('.photo-option')[0].classList.add('hidden');
-        setTimeout(function() {
+        setTimeout(function () {
             getClass('.photo-option')[0].classList.remove('display-pattern')
         }, 280)
     };
     getClass('.photo-add')[1].onblur = function () {
         getClass('.photo-option')[1].classList.add('hidden');
-        setTimeout(function() {
+        setTimeout(function () {
             getClass('.photo-option')[1].classList.remove('display-pattern')
         }, 280)
     };
-    getClass('.option')[0].onclick = function(){
-      getClass('.file-add')[0].click();
+    getClass('.option')[0].onclick = function () {
+        getClass('.file-add')[0].click();
     };
-    getClass('.option')[2].onclick = function(){
+    getClass('.option')[2].onclick = function () {
         getClass('.file-add')[1].click();
     };
-    getClass('.option')[1].onclick = function(){
-        // getClass('.file-add')[0].click();
-        alert('oi')
+    getClass('.option')[1].onclick = function () {
+        getClass('.product-insert-photo')[0].src = '';
+
     };
-    getClass('.option')[3].onclick = function(){
-        // getClass('.file-add')[1].click();
+    getClass('.option')[3].onclick = function () {
+        getClass('.product-insert-photo')[1].src = '';
     };
 
 
-    document.querySelectorAll('input')[1].onchange = function previewFile() {
-        var img = document.getElementsByClassName('product-insert-photo')[0];
-        var choose  = document.querySelectorAll('input')[1].files[0];
-        var read  = new FileReader();
+    getClass('.file-add')[0].onchange = function () {
+        var img = getClass('.product-insert-photo')[0];
+        var choose = getClass('.file-add')[0].files[0];
+        var read = new FileReader();
         read.onloadend = function () {
             img.src = read.result;
         };
         if (choose) {
             read.readAsDataURL(choose);
-            console.log();
         } else {
             img.src = "";
         }
     };
 
-    document.querySelectorAll('input')[5].onchange = function previewFile() {
-        var img = document.getElementsByClassName('product-insert-photo')[1];
-        var choose  =document.querySelectorAll('input')[5].files[0];
-        var read  = new FileReader();
+    getClass('.file-add')[1].onchange = function () {
+        var img = getClass('.product-insert-photo')[1];
+        var choose = getClass('.file-add')[1].files[0];
+        var read = new FileReader();
         read.onloadend = function () {
             img.src = read.result;
+            getId('new-img').value = read.result;
         };
         if (choose) {
             read.readAsDataURL(choose);
-            console.log();
         } else {
             img.src = "";
         }
@@ -243,6 +282,10 @@ window.addEventListener('load', function classes() {
             }
         };
     }
+
+
+
+
 
     // LOGOFF
 

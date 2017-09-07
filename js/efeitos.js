@@ -211,4 +211,11 @@ window.addEventListener('load', function () {
         getClass('.login-card')[0].classList.add('extend-for-forgot');
         getClass('.user-photo')[0].classList.remove('show');
     };
+    getClass('.button-alert')[0].onclick = function () {
+        var that = this;
+        this.parentNode.classList.remove('sent');
+        setTimeout(function () {
+            that.parentNode.classList.remove('display-pattern')
+        }, 280)
+    }
 });

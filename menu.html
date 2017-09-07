@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <script type="text/javascript" src="js/search-product.js"></script>
+    <script type="text/javascript" src="js/call-product-ajax.js"></script>
+    <script type="text/javascript" src="js/listing-ajax.js"></script>
+    <script type="text/javascript" src="js/product-disabled.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/product.js"></script>
     <script type="text/javascript" src="js/product-edit-ajax.js"></script>
-    <script type="text/javascript" src="js/listagem-ajax.js"></script>
-    <script type="text/javascript" src="js/product-register.js"></script>
+    <script type="text/javascript" src="js/product-register-ajax.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
-    <link rel="icon" type="image/gif" href="./image/ICONE-CS.png" />
+    <link rel="icon" type="image/gif" href="./image/ICONE-CS.png"/>
     <title>Candy Shop</title>
 </head>
 <body>
@@ -49,10 +53,11 @@
     <section class="product-card display-pattern">
         <div class="product-text"> Produtos
             <i class="material-icons filter" tabindex='1'>filter_list</i></div>
-        <div class="search">
+        <form class="search">
             <input type="text" placeholder="Pesquisar" class='product-search'>
             <i class="material-icons search-icon" tabindex='1'>search</i>
-            <i class="material-icons exit" tabindex='1'>clear</i></div>
+            <i class="material-icons exit" tabindex='1'>clear</i>
+        </form>
         <span class="column-head name"> Nome </span>
         <span class="column-head amount"> Quantidade </span>
         <table id="product-data" class="product-data">
@@ -60,67 +65,27 @@
         </table>
         <div class="page">
             <div class="page-text">
-                <label class="pagination"> 1-10 </label>
+                <label class="pagination"></label>
+                <label class="pagination">-</label>
+                <label class="pagination"></label>
                 <label class="pagination">de</label>
-                <label class="pagination"> 30 </label>
+                <label class="pagination"></label>
             </div>
-            <i tabindex="1" class="material-icons arrow-page left">keyboard_arrow_left</i><i tabindex="1" class="material-icons arrow-page right">keyboard_arrow_right</i>
+            <i tabindex="1" class="material-icons arrow-page left">keyboard_arrow_left</i>
+            <i tabindex="1" class="material-icons arrow-page right">keyboard_arrow_right</i>
         </div>
     </section>
     <button class="button-add"><i class="material-icons add">add</i></button>
 </div>
 <div class="register-position">
     <form class="product-register" onsubmit="return false">
-        <label class="label-register"> Cadastro de produtos</label>
+        <label class="label-register">Cadastro de produtos</label>
         <div class="overflow-photo">
-        <img class="product-insert-photo" id="image" src="./image/foto-default.png">
+            <img class="img-default" id="image-defult" src="./image/foto-default.png">
+            <img class="product-insert-photo" id="image" src="">
         </div>
         <div>
-        <i class="material-icons photo-add" tabindex="1">photo_camera</i>
-        </div>
-        <div class="photo-option hidden">
-            <div class="option">
-                <div class="photo-icon"><i class="material-icons photo-config">add_a_photo</i></div>
-                <div class="text-photo">Adicionar foto</div>
-            </div>
-            <div class="option">
-                <div class="photo-icon"><i class="material-icons photo-config">delete</i></div>
-                <div class="text-photo">Remover foto</div>
-            </div>
-        </div>
-        <input type="file" class="file-add" accept="image/*">
-            <div class="input-design">
-            <input autocomplete="off" type="text" class="input-box" id="name">
-            <label class="input-text" id="name-label" for="name">Nome*</label>
-        </div>
-        <div class="input-position">
-        <div class="input-design width-input">
-            <input autocomplete="off" type="number" step="any" class="input-box" id="price">
-            <label class="input-text" id="price-label" for="price">Preço*</label>
-        </div>
-            <div class="input-design width-spacing"></div>
-        <div class="input-design width-input">
-            <input autocomplete="off" type="number" class="input-box" id="amount">
-            <label class="input-text" id="amount-label" for="amount">Quantidade*</label>
-        </div>
-        </div>
-        <div class="input-design">
-            <textarea  class="text-area" id="observation"></textarea>
-            <label class="input-text-area" id="observation-label" for="observation">Observação</label>
-        </div>
-        <div class="button-position">
-        <button class="register-button" id="cancel-button"> CANCELAR </button>
-            <button class="register-button-disabled" id="register-button" disabled> CONFIRMAR </button>
-        </div>
-    </form>
-</div>
-<div class="register-position">
-    <form class="product-register" onsubmit="return false">
-        <label class="label-register"> Edição de produtos</label>
-        <div class="overflow-photo">
-        <img id="edit-photo" class="product-insert-photo" src="./image/foto-default.png">
-        </div>
-        <div>
+            <button class="button-photo"></button>
             <i class="material-icons photo-add" tabindex="1">photo_camera</i>
         </div>
         <div class="photo-option hidden">
@@ -134,6 +99,55 @@
             </div>
         </div>
         <input type="file" class="file-add" accept="image/*">
+        <div class="input-design">
+            <input autocomplete="off" type="text" class="input-box" id="name">
+            <label class="input-text" id="name-label" for="name">Nome*</label>
+        </div>
+        <div class="input-position">
+            <div class="input-design width-input">
+                <input autocomplete="off" type="number" step="any" class="input-box" id="price">
+                <label class="input-text" id="price-label" for="price">Preço*</label>
+            </div>
+            <div class="input-design width-spacing"></div>
+            <div class="input-design width-input">
+                <input autocomplete="off" type="number" class="input-box" id="amount">
+                <label class="input-text" id="amount-label" for="amount">Quantidade*</label>
+            </div>
+        </div>
+        <div class="input-design">
+            <textarea class="text-area" id="observation"></textarea>
+            <label class="input-text-area" id="observation-label" for="observation">Observação</label>
+        </div>
+        <div class="button-position">
+            <button class="register-button" id="cancel-button"> CANCELAR</button>
+            <button class="register-button-disabled" id="register-button" disabled> CONFIRMAR</button>
+        </div>
+    </form>
+</div>
+<div class="register-position">
+    <form class="product-register" onsubmit="return false">
+        <label class="label-register"> Edição de produtos</label>
+        <div class="overflow-photo">
+            <img class="img-default" id="img-edit" src="./image/foto-default.png">
+            <img class="product-insert-photo" id="edit-photo" src="">
+            <input type="hidden" id="new-img">
+        </div>
+        <div>
+            <button class="button-photo"></button>
+            <i class="material-icons photo-add" tabindex="1">photo_camera</i>
+        </div>
+        <div class="photo-option hidden">
+            <div class="option">
+                <div class="photo-icon"><i class="material-icons photo-config">add_a_photo</i></div>
+                <div class="text-photo">Adicionar foto</div>
+            </div>
+            <div class="option">
+                <div class="photo-icon"><i class="material-icons photo-config">delete</i></div>
+                <div class="text-photo">Remover foto</div>
+            </div>
+        </div>
+        <input type="file" class="file-add" accept="image/*">
+        <input type="hidden" id="id">
         <div class="input-design">
             <input autocomplete="off" type="text" class="input-box" id="name-edit">
             <label class="input-text" id="name-label-edit" for="name-edit">Nome*</label>
@@ -150,12 +164,12 @@
             </div>
         </div>
         <div class="input-design">
-            <textarea  class="text-area" id="observation-edit"></textarea>
-            <label class="input-text-area" id="observation-label-edit" for="observation-edit" > Observação </label>
+            <textarea class="text-area" id="observation-edit"></textarea>
+            <label class="input-text-area" id="observation-label-edit" for="observation-edit"> Observação </label>
         </div>
         <div class="button-position">
-            <button class="register-button" id="cancel-button-edit"> CANCELAR </button>
-            <button class="register-button" id="edit-button"> SALVAR </button>
+            <button class="register-button" id="cancel-button-edit"> CANCELAR</button>
+            <button class="register-button" id="edit-button"> SALVAR</button>
 
         </div>
     </form>

@@ -11,7 +11,12 @@ window.addEventListener('load', function () {
             var answer = JSON.parse(request.responseText);
 
             if (request.status >= 200 && request.status < 400) {
-                getClass('.sent-success')[0].classList.add('sent');
+                getClass('.sent-success')[0].classList.add('display-pattern');
+                setTimeout(function () {
+                    getClass('.sent-success')[0].classList.add('sent');
+                });
+
+
 
             } else {
                 switch (answer.code){

@@ -163,16 +163,16 @@ h1 {
     z-index: 1;
     display: none;
     opacity: 0;
-    transform: scale(0.8) translateY(-16px);
+    transform: scale(0.8);
     background-color: #fff;
-    width: 80px;
+    width: 20px;
     height: 20px;
     position: absolute;
-    top: 58px;
+    top: 14px;
     border-radius: 50px;
     text-align: center;
     transition: 280ms cubic-bezier(0.4, 0.0, 0.2, 1);
-    right: 0;
+    right: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .open-logoff {
@@ -183,9 +183,9 @@ h1 {
     background-color: #fff;
     width: 80px;
     height: 20px;
-    position: absolute;
-    right: 0;
-    top: 58px;
+    position: fixed;
+    right: 26px;
+    top: 28px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
     transition:280ms cubic-bezier(0.4, 0.0, 0.2, 1);
     z-index: 1;
@@ -218,12 +218,6 @@ h1 {
 }
 
 @media screen and (max-width: 700px) {
-    .product-card {
-        width: 100%;
-        top: 0;
-    }
-
-
     .product-search {
         position: absolute;
         left: 50px;
@@ -284,6 +278,10 @@ h1 {
     .bar {
         height: 58px;
         z-index: 1;
+    }
+    .product-card {
+        width: 100%;
+        top: 0;
     }
 }
 
@@ -458,6 +456,12 @@ h1 {
     left: 40px;
 }
 
+.right:focus,
+.left:focus{
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+}
+
 .page-text {
     text-align: center;
     position: relative;
@@ -578,13 +582,15 @@ h1 {
     display: flex;
 }
 
-.product-insert-photo {
+.product-insert-photo,
+.img-default{
     position: absolute;
     width: 100%;
     max-width: 100%;
     transform: translateY(-50%);
     top: 50%;
 }
+
 .overflow-photo{
     width: 100px;
     height: 100px;
@@ -619,7 +625,7 @@ h1 {
 }
 
 .register-button-disabled {
-    margin-left: 14px;
+    margin-left: 12px;
     background-color: transparent;
     color: rgba(0, 0, 0, 0.26);
     padding: 0 8px;
@@ -656,16 +662,29 @@ h1 {
 .photo-add {
     transition: 280ms cubic-bezier(0.4, 0.0, 0.2, 1);
     border-radius: 50%;
-    padding: 7px 6px 6px 7px;
+    top: 111px;
+    left: 54%;
+    margin-left: 3px;
+    color: #fff;
+    outline: none;
+    position: absolute;
+}
+
+.button-photo{
+    width: 39px;
+    height: 39px;
+    transition: 280ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    border-radius: 50%;
+    border: none;
     background-color: #8d6e63;
-    top: 107px;
+    top: 103px;
     left: 53%;
     color: #fff;
     outline: none;
     position: absolute;
     box-shadow: 0 0 2px 0 rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.12), 0 1px 3px 0 rgba(0,0,0,.20);
 }
-.photo-add:active{
+.button-photo:active{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.2);
 }
 

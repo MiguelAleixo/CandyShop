@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-    setTimeout(function () {
         function getClass(classe) {
             return document.querySelectorAll(classe);
         }
@@ -8,50 +7,55 @@ window.addEventListener('load', function () {
             return document.getElementById(id);
         }
 
-        for (var i = 0; i < getClass('.product').length; i++) {
-            getClass('.edit')[i].onclick = function () {
-                produtoPorId(this.parentNode.parentNode.getAttribute('data-id'));
-            };
-        }
-
-        function produtoPorId(id) {
-
+        getId('edit-button').onclick = function () {
+            var name = getId('name-edit').value;
+            var price = getId('price-edit').value;
+            var amount = getId('amount-edit').value;
+            var observation = getId('observation-edit').value;
+            var id = getId('id').value;
+            var image = getId('new-img').value;
+            var data = JSON.stringify({
+                id: id,
+                nome: name,
+                preco: price,
+                quantidade: amount,
+                imagem: image ? image : null,
+                descricao: observation,
+                status: true
+            });
             var request = new XMLHttpRequest();
-            request.open('GET', 'http://192.168.10.192:3500/product?id=' + id);
+            request.open('PUT', 'http://192.168.10.192:3500/product/' + id);
+            request.setRequestHeader('Content-Type', 'application/json');
             request.onload = function () {
                 if (request.status >= 200 && request.status < 400) {
-                    console.log(JSON.parse(request.response));
-                    getClass('.product-register')[1].classList.add('display-pattern');
+                    listing();
+                    callProduct();
+                    productDisabled();
+                    getClass('.card-position')[0].classList.add('display-pattern');
                     setTimeout(function () {
-                        getId('edit-button').classList.add('register-button');
-                        getId('edit-button').classList.remove('register-button-disabled');
-                        getId('edit-button').removeAttribute('disabled');
-                        getClass('.product-register')[1].classList.add('open');
-                        getClass('.card-position')[0].classList.remove('open');
-                        getId('name-edit').value = JSON.parse(request.response).result[0].nome;
-                        getId('amount-edit').value = JSON.parse(request.response).result[0].quantidade;
-                        getId('price-edit').value = JSON.parse(request.response).result[0].preco;
-                        getId('observation-edit').value = JSON.parse(request.response).result[0].descricaoProduto;
-                        if(getId('observation-edit').value.length > 0){
-                            getClass('.input-text-area')[1].classList.add('text-area-blur');
-                        }
+                        getClass('.input-text')[0].classList.remove('label-blur');
+                        getClass('.input-text')[1].classList.remove('label-blur');
+                        getClass('.input-text')[2].classList.remove('label-blur');
+                        getClass('.input-text-area')[1].classList.remove('text-area-blur');
+                        getClass('.product-register')[1].classList.remove('open');
+                        getClass('.product-register')[1].reset();
+                        getClass('.card-position')[0].classList.add('open');
+                    }, 100);
+                    setTimeout(function() {
+                        getClass('.product-register')[1].classList.remove('display-pattern');
+                        getClass('.product-insert-photo')[1].src = '';
+                    }, 280)
+                } else
+                {
+                    console.log('nao pegou');
 
-                        if(JSON.parse(request.response).result[0].imagem){
-                            getId('edit-photo').setAttribute('src', JSON.parse(request.response).result[0].imagem)
-                        }else{
-                            getId('edit-photo').setAttribute('src', './image/foto-default.png')
-                        }
-                    }, 50);
-                    for (var i = 3; i < 6; i++) {
-                        getClass('.input-box')[i].classList.add('input-blur');
-                        getClass('.input-text')[i].classList.add('label-blur');
-                    }
                 }
-                else {
-                    alert('erro')
-                }
-            };
-            request.send();
+            }
+            ;
+            request.send(data);
         }
-    }, 100)
-});
+    }
+);
+
+
+
