@@ -22,6 +22,10 @@ function callProduct() {
             request.open('GET', 'http://192.168.10.192:3500/product?id=' + id);
             request.onload = function () {
                 if (request.status >= 200 && request.status < 400) {
+                    getClass('.left')[0].classList.remove('arrow-disabled');
+                    getClass('.left')[0].removeAttribute('disabled');
+                    getClass('.right')[0].classList.remove('arrow-disabled');
+                    getClass('.right')[0].removeAttribute('disabled');
                     getClass('.product-register')[1].classList.add('display-pattern');
                     setTimeout(function () {
                         getId('edit-button').classList.add('register-button');

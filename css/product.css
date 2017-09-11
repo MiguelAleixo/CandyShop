@@ -249,19 +249,17 @@
 }
 
 .left {
-    left: 40px;
-}
-
-.right:focus,
-.left:focus{
-    background-color: rgba(0,0,0,0.2);
-    border-radius: 50%;
+    right: 100px;
 }
 
 .page-text {
-    text-align: center;
+    text-align: right;
     position: relative;
+    right: 144px;
     top: 17px;
+}
+.arrow-disabled{
+    color: rgba(0,0,0,0.2);
 }
 
 .product-register {

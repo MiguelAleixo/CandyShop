@@ -27,6 +27,10 @@ window.addEventListener('load', function () {
             request.onload = function () {
                 if (request.status >= 200 && request.status < 400) {
                     getClass('.card-position')[0].classList.add('display-pattern');
+                    getClass('.left')[0].classList.remove('arrow-disabled');
+                    getClass('.left')[0].removeAttribute('disabled');
+                    getClass('.right')[0].classList.remove('arrow-disabled');
+                    getClass('.right')[0].removeAttribute('disabled');
                     listing();
                     callProduct();
                     productDisabled();
@@ -44,7 +48,7 @@ window.addEventListener('load', function () {
                         getClass('.input-text-area')[0].classList.remove('text-area-blur');
                         getClass('.product-register')[0].reset();
                         getClass('.product-register')[0].classList.remove('display-pattern');
-                        getClass('.product-insert-photo')[0].src = null;
+                        // getClass('.product-insert-photo')[0].src = null;
                     }, 280)
                 } else {
                     console.log('nao pegou')

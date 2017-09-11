@@ -148,6 +148,7 @@ window.addEventListener('load', function () {
     };
 
 
+
     getClass('.file-add')[0].onchange = function () {
 
         var img = getClass('.product-insert-photo')[0];
@@ -155,7 +156,6 @@ window.addEventListener('load', function () {
         var read = new FileReader();
         read.onloadend = function () {
             img.src = read.result;
-            console.log(read)
         };
         if (choose) {
             read.readAsDataURL(choose);

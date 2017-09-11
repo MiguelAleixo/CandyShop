@@ -19,6 +19,10 @@ function listing(l, p) {
             function montarLista(lista) {
                 var table = document.getElementById('product-data');
                 table.innerHTML = '';
+                getClass('.left')[0].classList.remove('arrow-disabled');
+                getClass('.left')[0].removeAttribute('disabled');
+                getClass('.right')[0].classList.remove('arrow-disabled');
+                getClass('.right')[0].removeAttribute('disabled');
                 for (var i = 0; i < lista.length; i++) {
                     var newTr = document.createElement('tr');
                     var newTd = document.createElement('td');
@@ -44,6 +48,9 @@ function listing(l, p) {
                     } else {
                         getClass('.product-photo')[i].setAttribute('src', './image/foto-default.png');
                     }
+
+                    var page = (JSON.parse(request.response).result[0].totalLinhas)/10;
+
                     getClass('.edit')[i].setAttribute('tabindex', '1');
                     getClass('.flag')[i].setAttribute('tabindex', '1');
                     getClass('.edit')[i].innerText = 'create';
@@ -54,11 +61,29 @@ function listing(l, p) {
                     getClass('.pagination')[2].innerText = JSON.parse(request.response).result.length*p;
                     getClass('.pagination')[4].innerText = JSON.parse(request.response).result[0].totalLinhas;
 
+                    if(p === Math.ceil(page)){
+                        getClass('.right')[0].classList.add('arrow-disabled');
+                        getClass('.right')[0].setAttribute('disabled', 'disabled');
+                        getClass('.pagination')[0].innerText = (JSON.parse(request.response).result[0].totalLinhas)-(JSON.parse(request.response).result.length-1);
+                        getClass('.pagination')[2].innerText = JSON.parse(request.response).result[0].totalLinhas;
+                    }else if(p === 1){
+                        getClass('.left')[0].classList.add('arrow-disabled');
+                        getClass('.left')[0].setAttribute('disabled', 'disabled');
+                    }else{
+                        getClass('.left')[0].classList.remove('arrow-disabled');
+                        getClass('.left')[0].removeAttribute('disabled');
+                        getClass('.right')[0].classList.remove('arrow-disabled');
+                        getClass('.right')[0].removeAttribute('disabled');
+
+                    }
+
                     if((JSON.parse(request.response).result[i].status) == false){
+                        // that.parentElement.parentElement.childNodes[3].childNodes[0].style.display = 'none';
                         newTr.classList.add('desativado');
                         newTr.setAttribute('disabled', 'disabled');
                     }
                     else{
+                        // that.parentElement.parentElement.childNodes[3].childNodes[0].style.display = 'block';
                         newTr.classList.remove('desativado');
                         newTr.removeAttribute('disabled', 'disabled');
                     }
@@ -82,14 +107,20 @@ function listing(l, p) {
             })
         };
         getClass('.right')[0].onclick = function () {
-            listing(l, p + 1);
-            callProduct();
-            productDisabled();
+            var disabled = this.getAttribute('disabled');
+            if (!disabled) {
+                listing(l, p + 1);
+                callProduct();
+                productDisabled();
+            }
         };
         getClass('.left')[0].onclick = function () {
-            listing(l, p - 1);
-            callProduct();
-            productDisabled();
+            var disabled = this.getAttribute('disabled');
+            if (!disabled) {
+                listing(l, p - 1);
+                callProduct();
+                productDisabled();
+            }
         };
 
     };
